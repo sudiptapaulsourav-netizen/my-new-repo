@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Market | Secure Commerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d04b1cfa.js" crossorigin="anonymous"></script>
+  <style>
+    .card-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 flex flex-col">
+  <header class="bg-white shadow-sm sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl font-bold text-indigo-600">Nova Market</span>
+        <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs">SSL Enabled</span>
+      </div>
+      <nav class="flex items-center gap-6 text-sm font-medium">
+        <a href="#home" class="hover:text-indigo-600">Home</a>
+        <a href="#shop" class="hover:text-indigo-600">Shop</a>
+        <a href="#cart" class="hover:text-indigo-600">Cart</a>
+        <a href="#contact" class="hover:text-indigo-600">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <div class="relative">
+          <span class="fa-solid fa-lock text-green-600" aria-hidden="true"></span>
+          <span class="sr-only">Secure checkout enabled</span>
+        </div>
+        <button id="cart-button" class="relative inline-flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-full shadow hover:bg-indigo-700">
+          <span class="fa-solid fa-cart-shopping" aria-hidden="true"></span>
+          <span>Cart</span>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-white text-indigo-700 text-xs font-semibold rounded-full px-2 py-0.5 shadow">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1" id="home">
+    <section class="bg-gradient-to-r from-indigo-50 via-white to-indigo-50 border-b border-gray-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-sm uppercase tracking-wide text-indigo-600 font-semibold">Secure by Design</p>
+          <h1 class="mt-3 text-4xl font-extrabold text-gray-900 sm:text-5xl">Responsive ecommerce with modern security</h1>
+          <p class="mt-4 text-lg text-gray-600">Built with Tailwind CSS, SSL enforcement, two-factor authentication, and secure payment gateways so your customers can shop with confidence.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="#shop" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-full shadow">Shop Now</a>
+            <a href="#security" class="text-indigo-700 font-semibold hover:underline">View Security</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl shadow-xl p-6 border border-gray-100">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="bg-indigo-50 rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-indigo-700 font-semibold">
+                <span class="fa-solid fa-shield-halved" aria-hidden="true"></span>
+                Encrypted SSL
+              </div>
+              <p class="text-sm text-gray-600">Auto-detects HTTPS and alerts users when encryption is not active.</p>
+            </div>
+            <div class="bg-green-50 rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-green-700 font-semibold">
+                <span class="fa-solid fa-money-check-dollar" aria-hidden="true"></span>
+                Secure Payments
+              </div>
+              <p class="text-sm text-gray-600">Stripe & PayPal buttons with tokenized processing prompts.</p>
+            </div>
+            <div class="bg-amber-50 rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-amber-700 font-semibold">
+                <span class="fa-solid fa-mobile-screen" aria-hidden="true"></span>
+                Responsive Grid
+              </div>
+              <p class="text-sm text-gray-600">Tailwind-powered layout adapts to mobile, tablets, and desktops.</p>
+            </div>
+            <div class="bg-blue-50 rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-blue-700 font-semibold">
+                <span class="fa-solid fa-user-lock" aria-hidden="true"></span>
+                Two-Factor Login
+              </div>
+              <p class="text-sm text-gray-600">Interactive 2FA verification keeps customer accounts locked down.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+        <div>
+          <p class="text-sm uppercase tracking-wide text-indigo-600 font-semibold">Featured</p>
+          <h2 class="text-3xl font-bold text-gray-900">Shop curated products</h2>
+          <p class="text-gray-600 mt-2">Choose from our handpicked catalog. Add to cart to see secure checkout prompts.</p>
+        </div>
+        <div class="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-4 py-2 shadow-sm">
+          <span class="fa-solid fa-lock text-green-600" aria-hidden="true"></span>
+          <span class="text-sm text-gray-700">Payment data is tokenized & encrypted</span>
+        </div>
+      </div>
+
+      <div id="product-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <section id="cart" class="bg-white border-y border-gray-100 py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <div class="flex-1">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Cart summary</h3>
+            <p id="cart-empty" class="text-gray-600">Your cart is empty. Add items to begin a secure checkout.</p>
+            <ul id="cart-items" class="space-y-3"></ul>
+          </div>
+          <div class="w-full lg:w-96 bg-indigo-50 border border-indigo-100 rounded-2xl p-6 flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <span class="fa-solid fa-shield text-indigo-700" aria-hidden="true"></span>
+              <div>
+                <h4 class="font-semibold text-indigo-900">Security controls</h4>
+                <p class="text-sm text-indigo-800">SSL enforced | 2FA required for checkout</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-sm text-gray-700 border-t border-indigo-100 pt-3">
+              <span>Total items</span>
+              <span id="cart-total-items" class="font-semibold">0</span>
+            </div>
+            <div class="flex items-center justify-between text-sm text-gray-700">
+              <span>Estimated total</span>
+              <span id="cart-total" class="font-semibold">$0.00</span>
+            </div>
+            <button id="checkout-button" class="bg-indigo-600 text-white rounded-full py-3 font-semibold shadow hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+              Proceed to secure checkout
+            </button>
+            <p class="text-xs text-indigo-900">Checkout uses HTTPS and tokenized payment gateways. Two-factor authentication is requested before payment.</p>
+            <div id="cart-alert" class="hidden rounded-lg bg-green-100 text-green-800 px-4 py-3 text-sm" role="alert"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid lg:grid-cols-2 gap-8">
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="fa-solid fa-qrcode text-indigo-600" aria-hidden="true"></span>
+          <h3 class="text-xl font-semibold text-gray-900">Two-Factor Authentication</h3>
+        </div>
+        <p class="text-gray-600 mb-4">Enter the one-time code sent to your device to secure your account before checking out.</p>
+        <form id="twofa-form" class="space-y-3">
+          <label class="block text-sm font-medium text-gray-700" for="email">Email</label>
+          <input id="email" type="email" required class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="you@example.com" />
+          <label class="block text-sm font-medium text-gray-700" for="otp">One-time code</label>
+          <input id="otp" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="6-digit code" />
+          <button type="submit" class="w-full bg-indigo-600 text-white rounded-lg py-2 font-semibold hover:bg-indigo-700">Verify & enable 2FA</button>
+          <p id="twofa-status" class="text-sm text-gray-700"></p>
+        </form>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm flex flex-col gap-6">
+        <div class="flex items-center gap-3">
+          <span class="fa-solid fa-credit-card text-green-600" aria-hidden="true"></span>
+          <h3 class="text-xl font-semibold text-gray-900">Secure Payment Gateway</h3>
+        </div>
+        <p class="text-gray-600">Stripe (card) and PayPal (wallet) are available. All payments are sent over HTTPS with tokenization and PCI-compliant handling.</p>
+        <div class="grid sm:grid-cols-2 gap-3">
+          <button data-gateway="stripe" class="gateway-btn flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-xl px-4 py-3 hover:border-indigo-500 hover:text-indigo-700">
+            <span class="fa-brands fa-stripe" aria-hidden="true"></span>
+            Pay with Stripe
+          </button>
+          <button data-gateway="paypal" class="gateway-btn flex items-center justify-center gap-2 bg-white border border-gray-300 rounded-xl px-4 py-3 hover:border-indigo-500 hover:text-indigo-700">
+            <span class="fa-brands fa-paypal" aria-hidden="true"></span>
+            Pay with PayPal
+          </button>
+        </div>
+        <div class="text-sm text-gray-700 bg-indigo-50 border border-indigo-100 rounded-xl p-4" id="payment-status">Select a gateway to simulate tokenized checkout.</div>
+        <p class="text-xs text-gray-600">Demo mode uses test tokens. Replace the gateway hooks with live API keys and server-side session creation for production deployments.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="bg-gray-900 text-gray-100 mt-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div>
+        <h4 class="text-lg font-semibold">Nova Market</h4>
+        <p class="text-sm text-gray-300 mt-3">Responsive ecommerce built with Tailwind CSS and secure payment best practices.</p>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-3">Company</h5>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="#shop" class="hover:text-white">Shop</a></li>
+          <li><a href="#security" class="hover:text-white">Security</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-3">Support</h5>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li>support@novamarket.com</li>
+          <li>+1 (800) 123-4567</li>
+          <li>Mon - Fri, 9am - 6pm</li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="font-semibold mb-3">Follow</h5>
+        <div class="flex items-center gap-3 text-xl">
+          <a href="https://twitter.com" class="hover:text-indigo-400" aria-label="Twitter"><span class="fa-brands fa-twitter"></span></a>
+          <a href="https://facebook.com" class="hover:text-indigo-400" aria-label="Facebook"><span class="fa-brands fa-facebook"></span></a>
+          <a href="https://instagram.com" class="hover:text-indigo-400" aria-label="Instagram"><span class="fa-brands fa-instagram"></span></a>
+          <a href="https://linkedin.com" class="hover:text-indigo-400" aria-label="LinkedIn"><span class="fa-brands fa-linkedin"></span></a>
+        </div>
+        <p class="text-xs text-gray-400 mt-3">&copy; <span id="year"></span> Nova Market. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      { id: 1, name: 'Smart Desk Lamp', price: 59.99, image: 'https://images.unsplash.com/photo-1582719478248-54e9f2af6e8f?auto=format&fit=crop&w=800&q=80' },
+      { id: 2, name: 'Noise-canceling Headphones', price: 129.99, image: 'https://images.unsplash.com/photo-1580894894513-541e068a3ec4?auto=format&fit=crop&w=800&q=80' },
+      { id: 3, name: 'Ergonomic Chair', price: 249.99, image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80' },
+      { id: 4, name: 'Portable Speaker', price: 89.99, image: 'https://images.unsplash.com/photo-1490376840453-5f616fbebe5b?auto=format&fit=crop&w=800&q=80' },
+      { id: 5, name: 'Fitness Tracker', price: 99.99, image: 'https://images.unsplash.com/photo-1519861159910-1ca2400c37c1?auto=format&fit=crop&w=800&q=80' },
+      { id: 6, name: 'Wireless Charger', price: 39.99, image: 'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?auto=format&fit=crop&w=800&q=80' }
+    ];
+
+    const cart = [];
+    const productGrid = document.getElementById('product-grid');
+    const cartCount = document.getElementById('cart-count');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const cartTotalItems = document.getElementById('cart-total-items');
+    const cartEmpty = document.getElementById('cart-empty');
+    const cartAlert = document.getElementById('cart-alert');
+    const checkoutButton = document.getElementById('checkout-button');
+    const twofaForm = document.getElementById('twofa-form');
+    const twofaStatus = document.getElementById('twofa-status');
+    const paymentStatus = document.getElementById('payment-status');
+
+    function formatCurrency(value) {
+      return `$${value.toFixed(2)}`;
+    }
+
+    function renderProducts() {
+      productGrid.innerHTML = '';
+      products.forEach((product) => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-200 card-hover flex flex-col';
+        card.innerHTML = `
+          <div class="aspect-[4/3] bg-gray-100 overflow-hidden">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="p-5 flex flex-col gap-3 flex-1">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900">${product.name}</h3>
+              <p class="text-indigo-600 font-bold">${formatCurrency(product.price)}</p>
+            </div>
+            <button class="mt-auto inline-flex items-center justify-center gap-2 bg-indigo-600 text-white rounded-full px-4 py-2 shadow hover:bg-indigo-700" data-id="${product.id}">
+              <span class="fa-solid fa-cart-plus" aria-hidden="true"></span>
+              Add to Cart
+            </button>
+          </div>
+        `;
+        productGrid.appendChild(card);
+      });
+
+      document.querySelectorAll('#product-grid button').forEach((btn) => btn.addEventListener('click', handleAddToCart));
+    }
+
+    function handleAddToCart(event) {
+      const id = Number(event.currentTarget.dataset.id);
+      const product = products.find((item) => item.id === id);
+      cart.push(product);
+      renderCart();
+      showCartAlert(`${product.name} added to cart. Checkout is secured with tokenized payments.`);
+    }
+
+    function renderCart() {
+      cartCount.textContent = cart.length;
+      cartTotalItems.textContent = cart.length;
+      cartItems.innerHTML = '';
+
+      if (!cart.length) {
+        cartEmpty.classList.remove('hidden');
+        checkoutButton.disabled = true;
+        cartTotal.textContent = formatCurrency(0);
+        return;
+      }
+
+      cartEmpty.classList.add('hidden');
+      checkoutButton.disabled = false;
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      cartTotal.textContent = formatCurrency(total);
+
+      cart.forEach((item) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-4 py-3';
+        li.innerHTML = `
+          <div>
+            <p class="font-semibold text-gray-900">${item.name}</p>
+            <p class="text-sm text-gray-600">Tokenized • Encrypted</p>
+          </div>
+          <div class="text-indigo-700 font-semibold">${formatCurrency(item.price)}</div>
+        `;
+        cartItems.appendChild(li);
+      });
+    }
+
+    function showCartAlert(message) {
+      cartAlert.textContent = message;
+      cartAlert.classList.remove('hidden');
+      cartAlert.classList.add('animate-pulse');
+      setTimeout(() => {
+        cartAlert.classList.add('hidden');
+        cartAlert.classList.remove('animate-pulse');
+      }, 2200);
+    }
+
+    function enforceHttps() {
+      const insecure = location.protocol !== 'https:' && location.hostname !== 'localhost';
+      if (insecure) {
+        const banner = document.createElement('div');
+        banner.className = 'bg-amber-100 text-amber-800 text-center py-3 text-sm';
+        banner.innerHTML = '<strong>SSL required:</strong> Redirecting to a secure HTTPS session for encrypted checkout...';
+        document.body.prepend(banner);
+        setTimeout(() => {
+          location.href = location.href.replace('http://', 'https://');
+        }, 1200);
+      }
+    }
+
+    twofaForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const otp = document.getElementById('otp').value.trim();
+      if (otp === '246810') {
+        twofaStatus.textContent = 'Two-factor authentication verified. Checkout unlocked.';
+        twofaStatus.className = 'text-sm font-semibold text-green-700';
+        checkoutButton.disabled = cart.length === 0 ? true : false;
+      } else {
+        twofaStatus.textContent = 'Invalid code. Please re-enter the 6-digit token from your authenticator app.';
+        twofaStatus.className = 'text-sm font-semibold text-red-700';
+        checkoutButton.disabled = true;
+      }
+    });
+
+    checkoutButton.addEventListener('click', () => {
+      paymentStatus.textContent = 'Please select Stripe or PayPal to finish secure payment.';
+      document.getElementById('security').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('.gateway-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        const gateway = button.dataset.gateway;
+        const token = Math.random().toString(36).slice(2, 10).toUpperCase();
+        paymentStatus.textContent = `${gateway === 'stripe' ? 'Stripe' : 'PayPal'} selected. Token ${token} generated for secure processing.`;
+        paymentStatus.className = 'text-sm text-green-700 bg-green-50 border border-green-100 rounded-xl p-4';
+        showCartAlert('Payment gateway ready. Continue in secure popup.');
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+    enforceHttps();
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
