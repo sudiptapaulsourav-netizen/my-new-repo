@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dreamy Fits | Innear & Night Dress Boutique</title>
+  <style>
+    :root {
+      --primary: #ef476f;
+      --secondary: #ffd166;
+      --bg: #fff6f9;
+      --text: #2b2d42;
+      --muted: #6c7281;
+      --card: #ffffff;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 8px 20px rgba(239, 71, 111, 0.12);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .cart-indicator {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.35rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 8px 16px rgba(239, 71, 111, 0.35);
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 2rem auto 1rem;
+      padding: 1rem 1.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 3vw + 1rem, 3rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+      color: var(--muted);
+      max-width: 36ch;
+      margin-bottom: 1rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(239, 71, 111, 0.08);
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .hero-blob {
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 209, 102, 0.7), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(239, 71, 111, 0.35), transparent 45%),
+        #ffe9f1;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      filter: drop-shadow(0 25px 45px rgba(239, 71, 111, 0.12));
+    }
+
+    .hero-visual img {
+      position: absolute;
+      width: 190px;
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .products {
+      max-width: 1100px;
+      margin: 1rem auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    .products header {
+      position: static;
+      box-shadow: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .section-head h2 {
+      font-size: 1.8rem;
+    }
+
+    .message {
+      background: #fff;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+      color: var(--text);
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 1rem;
+      display: grid;
+      gap: 0.75rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(239, 71, 111, 0.16);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(239, 71, 111, 0.08);
+      color: var(--primary);
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .btn {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+      box-shadow: 0 12px 24px rgba(239, 71, 111, 0.2);
+    }
+
+    .btn:hover {
+      background: #d93d64;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #fff;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.05);
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .social {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social a {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(239, 71, 111, 0.08);
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .social a:hover {
+      transform: translateY(-3px);
+      background: rgba(239, 71, 111, 0.14);
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 0.75rem;
+      }
+
+      .card img {
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">Dreamy Fits</div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#cart">Cart <span class="cart-indicator" id="cart-count">0</span></a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-pill">Innear & Night Dress Boutique</div>
+        <h1>Soft, stylish, and made for dreamy nights.</h1>
+        <p>Discover curated pieces that blend comfort with elegance. From delicate lace inners to cozy night dresses, every detail is designed to make you feel confident and relaxed.</p>
+        <a class="btn" href="#shop">Shop new arrivals</a>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-blob"></div>
+        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=500&q=80" alt="Woman in night dress" />
+      </div>
+    </section>
+
+    <section class="products" id="shop">
+      <div class="section-head">
+        <h2>Featured looks</h2>
+        <div class="message" id="message" role="status" aria-live="polite"></div>
+      </div>
+      <div class="grid" id="product-grid" aria-label="Product list"></div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <p class="muted">© 2024 Dreamy Fits. All rights reserved.</p>
+      <div class="social">
+        <a href="https://www.instagram.com" aria-label="Instagram">IG</a>
+        <a href="https://www.facebook.com" aria-label="Facebook">FB</a>
+        <a href="https://www.pinterest.com" aria-label="Pinterest">PT</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: 'Blush Lace Slip',
+        price: 42,
+        tag: 'Lace',
+        image: 'https://images.unsplash.com/photo-1503342296413-28a6ec3765a1?auto=format&fit=crop&w=500&q=80'
+      },
+      {
+        name: 'Midnight Satin Chemise',
+        price: 56,
+        tag: 'Satin',
+        image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80'
+      },
+      {
+        name: 'Soft Cotton Lounge Set',
+        price: 38,
+        tag: 'Cozy',
+        image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80'
+      },
+      {
+        name: 'Rosewater Robe',
+        price: 48,
+        tag: 'Relax',
+        image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80'
+      },
+      {
+        name: 'Cloud Nine Night Dress',
+        price: 52,
+        tag: 'Breezy',
+        image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=500&q=80&sat=-20'
+      },
+      {
+        name: 'Ember Lounge Tee',
+        price: 29,
+        tag: 'Everyday',
+        image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=500&q=80'
+      }
+    ];
+
+    const productGrid = document.getElementById('product-grid');
+    const messageBox = document.getElementById('message');
+    const cartCount = document.getElementById('cart-count');
+
+    let cartTotal = 0;
+    let hideTimer = null;
+
+    function renderProducts() {
+      const fragment = document.createDocumentFragment();
+
+      products.forEach((product, index) => {
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.setAttribute('data-product', product.name);
+        card.innerHTML = `
+          <span class="tag">${product.tag}</span>
+          <img src="${product.image}" alt="${product.name}" loading="lazy" />
+          <div>
+            <h3>${product.name}</h3>
+            <p class="muted">Made for dreamy comfort</p>
+          </div>
+          <div class="price">$${product.price.toFixed(2)}</div>
+          <button class="btn" data-index="${index}">Add to cart</button>
+        `;
+
+        fragment.appendChild(card);
+      });
+
+      productGrid.appendChild(fragment);
+    }
+
+    function showMessage(text) {
+      if (hideTimer) {
+        clearTimeout(hideTimer);
+      }
+
+      messageBox.textContent = text;
+      messageBox.classList.add('show');
+      hideTimer = setTimeout(() => messageBox.classList.remove('show'), 2200);
+    }
+
+    function handleAdd(event) {
+      const button = event.target.closest('button[data-index]');
+      if (!button) return;
+
+      const product = products[button.dataset.index];
+      cartTotal += 1;
+      cartCount.textContent = cartTotal;
+      showMessage(`${product.name} added to cart.`);
+    }
+
+    productGrid.addEventListener('click', handleAdd);
+    renderProducts();
+  </script>
+</body>
+</html>
