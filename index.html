@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Modern ecommerce experience with Tailwind CSS and dynamic JavaScript interactions." />
+  <title>NovaShop | Modern Ecommerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="min-h-screen font-display bg-slate-950 text-slate-100 antialiased transition-colors duration-300" data-theme="dark">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand-600/20 via-slate-900 to-slate-950"></div>
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),_transparent_45%)]"></div>
+  <header class="sticky top-0 z-40 border-b border-white/10 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 lg:px-8">
+      <div class="flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-500/10 ring-1 ring-brand-300/20">
+          <span class="text-xl font-bold text-brand-100">N</span>
+        </div>
+        <div>
+          <p class="text-xl font-semibold tracking-tight">NovaShop</p>
+          <p class="text-xs text-slate-400">Curated lifestyle essentials</p>
+        </div>
+      </div>
+      <div class="hidden items-center gap-8 text-sm font-medium text-slate-200 lg:flex">
+        <a class="transition hover:text-white" href="#products">Products</a>
+        <a class="transition hover:text-white" href="#categories">Categories</a>
+        <a class="transition hover:text-white" href="#stories">Stories</a>
+        <a class="transition hover:text-white" href="#newsletter">Updates</a>
+      </div>
+      <div class="hidden items-center gap-3 lg:flex">
+        <button id="theme-toggle" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-100 transition hover:border-brand-400/30 hover:bg-brand-500/10" aria-label="Toggle theme">
+          <span id="theme-icon">🌙</span>
+        </button>
+        <div class="relative">
+          <button class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:border-brand-300/30 hover:bg-brand-500/10">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-500 text-sm font-bold text-white" id="cart-count">2</span>
+            <span>Cart</span>
+          </button>
+          <div class="pointer-events-none absolute -right-2 -top-2 h-3 w-3 animate-ping rounded-full bg-brand-400"></div>
+        </div>
+      </div>
+      <button id="mobile-menu-toggle" class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-slate-100 lg:hidden">
+        <span class="sr-only">Toggle menu</span>
+        ☰
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950/90 px-4 py-4 backdrop-blur lg:hidden">
+      <div class="flex flex-col gap-3 text-sm font-semibold text-slate-100">
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/5" href="#products">Products</a>
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/5" href="#categories">Categories</a>
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/5" href="#stories">Stories</a>
+        <a class="rounded-lg px-3 py-2 transition hover:bg-white/5" href="#newsletter">Updates</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto flex max-w-6xl flex-col gap-16 px-4 pb-24 pt-12 lg:px-8">
+    <section class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 rounded-full bg-brand-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-100 ring-1 ring-brand-400/20">
+          Limited drop · Sustainable picks
+        </div>
+        <h1 class="text-4xl font-bold leading-tight text-white sm:text-5xl">
+          Discover curated products crafted for modern living.
+        </h1>
+        <p class="max-w-2xl text-lg text-slate-300">
+          Shop an elevated collection of everyday essentials, ethical fashion, and smart home tech. Designed with sustainability,
+          transparency, and delightful details in mind.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <a class="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-500 to-brand-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-900/40 transition hover:-translate-y-0.5 hover:shadow-xl" href="#products">
+            Explore products
+            <span class="transition duration-300 group-hover:translate-x-1">→</span>
+          </a>
+          <button class="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-brand-400/40 hover:bg-brand-500/10">
+            View ethical standards
+          </button>
+        </div>
+        <div class="grid grid-cols-3 gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200 shadow-lg shadow-black/20">
+          <div>
+            <p class="text-2xl font-bold text-white">25k+</p>
+            <p class="text-xs text-slate-400">Happy customers</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-white">4.9★</p>
+            <p class="text-xs text-slate-400">Average rating</p>
+          </div>
+          <div>
+            <p class="text-2xl font-bold text-white">48h</p>
+            <p class="text-xs text-slate-400">Carbon-neutral shipping</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-brand-500/30 blur-3xl"></div>
+        <div class="absolute -bottom-8 -right-4 h-28 w-28 rounded-full bg-emerald-500/20 blur-3xl"></div>
+        <div class="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/10 to-white/5 shadow-2xl shadow-black/40">
+          <div class="aspect-[4/5] bg-[url('https://images.unsplash.com/photo-1495107334309-fcf20504a5ab?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center"></div>
+          <div class="space-y-3 p-6">
+            <div class="flex items-center justify-between text-sm text-slate-200">
+              <p class="font-semibold">Coastal Retreat Look</p>
+              <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-200">In stock</span>
+            </div>
+            <p class="text-2xl font-bold text-white">$189</p>
+            <div class="flex items-center gap-2 text-xs text-slate-300">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <p>Ethically sourced linen + organic cotton blend</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="space-y-8">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-200">Collections</p>
+          <h2 class="text-3xl font-bold text-white">Curated by designers</h2>
+        </div>
+        <div class="hidden gap-2 sm:flex">
+          <button data-category="all" class="category-chip active">All</button>
+          <button data-category="Apparel" class="category-chip">Apparel</button>
+          <button data-category="Home" class="category-chip">Home</button>
+          <button data-category="Tech" class="category-chip">Tech</button>
+          <button data-category="Wellness" class="category-chip">Wellness</button>
+        </div>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30 transition hover:-translate-y-1 hover:border-brand-300/30">
+          <div class="h-40 rounded-xl bg-[url('https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center transition group-hover:scale-[1.02]"></div>
+          <div class="mt-4 space-y-2">
+            <p class="text-sm font-semibold text-brand-100">Minimal Lounge</p>
+            <p class="text-lg font-bold text-white">Textured staples</p>
+            <p class="text-sm text-slate-400">Elevated basics with tactile fabrics and slow-made detailing.</p>
+          </div>
+        </article>
+        <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30 transition hover:-translate-y-1 hover:border-brand-300/30">
+          <div class="h-40 rounded-xl bg-[url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center transition group-hover:scale-[1.02]"></div>
+          <div class="mt-4 space-y-2">
+            <p class="text-sm font-semibold text-brand-100">Smart Living</p>
+            <p class="text-lg font-bold text-white">Connected comfort</p>
+            <p class="text-sm text-slate-400">Thoughtful lighting, audio, and automation for every corner.</p>
+          </div>
+        </article>
+        <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30 transition hover:-translate-y-1 hover:border-brand-300/30">
+          <div class="h-40 rounded-xl bg-[url('https://images.unsplash.com/photo-1456610988841-0c492f35f7b1?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center transition group-hover:scale-[1.02]"></div>
+          <div class="mt-4 space-y-2">
+            <p class="text-sm font-semibold text-brand-100">Weekender</p>
+            <p class="text-lg font-bold text-white">Travel-ready layers</p>
+            <p class="text-sm text-slate-400">Carry-on friendly essentials built for comfort in motion.</p>
+          </div>
+        </article>
+        <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/30 transition hover:-translate-y-1 hover:border-brand-300/30">
+          <div class="h-40 rounded-xl bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center transition group-hover:scale-[1.02]"></div>
+          <div class="mt-4 space-y-2">
+            <p class="text-sm font-semibold text-brand-100">Kitchen Lab</p>
+            <p class="text-lg font-bold text-white">Chef-forward tools</p>
+            <p class="text-sm text-slate-400">Performance cookware, small-batch ceramics, and mindful rituals.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="products" class="space-y-8">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-brand-200">Featured</p>
+          <h2 class="text-3xl font-bold text-white">Best-selling products</h2>
+          <p class="text-slate-300">Handpicked items loved by our community.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <svg class="pointer-events-none absolute left-3 top-2.5 h-4 w-4 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 100-15 7.5 7.5 0 000 15z" />
+            </svg>
+            <input id="search" type="search" placeholder="Search products" class="w-48 rounded-full border border-white/10 bg-white/5 py-2 pl-9 pr-3 text-sm text-white placeholder:text-slate-400 focus:border-brand-400/60 focus:outline-none" />
+          </div>
+          <div class="hidden gap-2 sm:flex" id="filter-group">
+            <button data-filter="all" class="filter-chip active">All</button>
+            <button data-filter="Apparel" class="filter-chip">Apparel</button>
+            <button data-filter="Home" class="filter-chip">Home</button>
+            <button data-filter="Tech" class="filter-chip">Tech</button>
+            <button data-filter="Wellness" class="filter-chip">Wellness</button>
+          </div>
+        </div>
+      </div>
+      <div id="product-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <section class="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-brand-700/80 via-brand-600/70 to-emerald-500/60 p-10 text-white shadow-2xl shadow-black/40">
+      <div class="absolute -left-10 top-0 h-48 w-48 rounded-full bg-white/15 blur-3xl"></div>
+      <div class="absolute right-4 top-4 h-20 w-20 rounded-full bg-white/20 blur-2xl"></div>
+      <div class="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div class="space-y-2">
+          <p class="text-sm font-semibold uppercase tracking-widest text-white/80">Member perks</p>
+          <h3 class="text-3xl font-bold">Earn rewards with every order</h3>
+          <p class="max-w-xl text-white/80">Unlock early access to drops, carbon-neutral shipping upgrades, and personalized recommendations tailored to your style.</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <button class="rounded-full bg-white px-6 py-3 text-sm font-semibold text-brand-700 transition hover:-translate-y-0.5 hover:bg-slate-100">Activate rewards</button>
+          <button class="rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/10">View status</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="space-y-10">
+      <div class="flex flex-col gap-2">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-200">Voices</p>
+        <h2 class="text-3xl font-bold text-white">Stories from the community</h2>
+        <p class="text-slate-300">Hear how NovaShop fits into daily rituals around the world.</p>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/20">
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=200&q=80" alt="Customer portrait" />
+            <div>
+              <p class="text-sm font-semibold text-white">Mara, interior designer</p>
+              <p class="text-xs text-slate-400">Barcelona</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-200">“I love how every piece is purposeful. The curation takes the overwhelm out of shopping and the sustainability notes are clear.”</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/20">
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Customer portrait" />
+            <div>
+              <p class="text-sm font-semibold text-white">Jun, product lead</p>
+              <p class="text-xs text-slate-400">Seoul</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-200">“Delivery is fast and carbon neutral. The smart home gear works together beautifully and the support team is on point.”</p>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-black/20">
+          <div class="flex items-center gap-3">
+            <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=200&q=80" alt="Customer portrait" />
+            <div>
+              <p class="text-sm font-semibold text-white">Naomi, photographer</p>
+              <p class="text-xs text-slate-400">Vancouver</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm text-slate-200">“Their apparel line layers perfectly for shoots. The fabrics are soft, breathable, and ethically sourced.”</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="newsletter" class="grid items-center gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/30 lg:grid-cols-2">
+      <div class="space-y-3">
+        <p class="text-sm font-semibold uppercase tracking-widest text-brand-200">Stay in the loop</p>
+        <h3 class="text-3xl font-bold text-white">Weekly drops and early access</h3>
+        <p class="text-slate-300">Join the list for design inspiration, new arrivals, and exclusive perks. No spam, ever.</p>
+        <div class="flex items-center gap-4 text-sm text-slate-300">
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+            <span>Handpicked stories</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-amber-400"></span>
+            <span>Early product access</span>
+          </div>
+        </div>
+      </div>
+      <form class="flex flex-col gap-4 sm:flex-row">
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" required placeholder="you@example.com" class="w-full rounded-xl border border-white/10 bg-slate-900/70 px-4 py-3 text-white placeholder:text-slate-400 focus:border-brand-400/70 focus:outline-none" />
+        <button type="submit" class="rounded-xl bg-brand-500 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-brand-400">Join the list</button>
+      </form>
+      <p class="text-xs text-slate-400">We respect your privacy. Read our policy before subscribing.</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10 bg-slate-950/80 py-10 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div class="space-y-2">
+        <p class="text-xl font-bold text-white">NovaShop</p>
+        <p class="text-sm text-slate-400">Crafted for modern living with planet-first logistics.</p>
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <span class="rounded-full bg-emerald-500/20 px-2 py-1 font-semibold text-emerald-200">Carbon neutral</span>
+          <span class="rounded-full bg-brand-500/20 px-2 py-1 font-semibold text-brand-100">Certified suppliers</span>
+        </div>
+      </div>
+      <div class="grid gap-6 text-sm text-slate-300 sm:grid-cols-3">
+        <div class="space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Shop</p>
+          <a class="block hover:text-white" href="#">New arrivals</a>
+          <a class="block hover:text-white" href="#">Bestsellers</a>
+          <a class="block hover:text-white" href="#">Gift guides</a>
+        </div>
+        <div class="space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Company</p>
+          <a class="block hover:text-white" href="#">About</a>
+          <a class="block hover:text-white" href="#">Sustainability</a>
+          <a class="block hover:text-white" href="#">Careers</a>
+        </div>
+        <div class="space-y-2">
+          <p class="text-xs font-semibold uppercase tracking-widest text-slate-400">Support</p>
+          <a class="block hover:text-white" href="#">Help center</a>
+          <a class="block hover:text-white" href="#">Shipping</a>
+          <a class="block hover:text-white" href="#">Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="pointer-events-none fixed bottom-6 right-6 flex translate-y-6 items-center gap-3 rounded-2xl border border-emerald-400/50 bg-slate-900/90 px-4 py-3 text-sm font-semibold text-emerald-100 opacity-0 shadow-lg shadow-emerald-900/30 transition">
+    <span>Added to cart</span>
+  </div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
