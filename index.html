@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulse - Modern E-commerce</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              primary: '#2563eb',
+              accent: '#22d3ee',
+            },
+            boxShadow: {
+              glass: '0 10px 30px -12px rgba(37, 99, 235, 0.35)',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <div class="min-h-screen flex flex-col">
+      <header class="sticky top-0 z-30 backdrop-blur bg-white/80 shadow">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-xl bg-primary text-white grid place-items-center text-lg font-bold shadow-glass">
+                P
+              </div>
+              <div>
+                <p class="text-lg font-semibold text-primary">Pulse</p>
+                <p class="text-xs text-slate-500">Modern commerce experience</p>
+              </div>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+              <a href="#products" class="hover:text-primary transition">Products</a>
+              <a href="#highlights" class="hover:text-primary transition">Highlights</a>
+              <a href="#cta" class="hover:text-primary transition">Newsletter</a>
+            </nav>
+            <div class="flex items-center gap-3">
+              <button
+                id="theme-toggle"
+                class="hidden md:inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm hover:text-primary"
+                aria-label="Toggle theme"
+              >
+                <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25M12 18.75V21M4.5 12H2.25M21.75 12H19.5M6.364 6.364 4.95 4.95m14.142 14.142-1.414-1.414M17.636 6.364l1.414-1.414M6.364 17.636 4.95 19.05M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" />
+                </svg>
+              </button>
+              <button
+                id="cart-button"
+                class="relative h-11 px-4 inline-flex items-center gap-2 rounded-xl bg-primary text-white text-sm font-semibold shadow-glass transition hover:-translate-y-0.5"
+              >
+                <span class="hidden sm:inline">Cart</span>
+                <span id="cart-count" class="grid h-7 w-7 place-items-center rounded-lg bg-white/20 text-xs font-semibold">0</span>
+              </button>
+              <button
+                id="menu-toggle"
+                class="md:hidden h-11 w-11 grid place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 shadow-sm"
+                aria-label="Open menu"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden origin-top scale-y-0 transform transition duration-200">
+          <div class="px-4 pb-4 space-y-3 bg-white shadow-lg">
+            <a href="#products" class="block rounded-lg px-4 py-3 text-slate-700 hover:bg-slate-100">Products</a>
+            <a href="#highlights" class="block rounded-lg px-4 py-3 text-slate-700 hover:bg-slate-100">Highlights</a>
+            <a href="#cta" class="block rounded-lg px-4 py-3 text-slate-700 hover:bg-slate-100">Newsletter</a>
+            <button id="theme-toggle-mobile" class="w-full rounded-lg border border-slate-200 px-4 py-3 text-left text-slate-700">Toggle theme</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1">
+        <section class="relative overflow-hidden bg-gradient-to-br from-white via-slate-50 to-slate-100" aria-labelledby="hero-title">
+          <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute right-[-6rem] top-[-6rem] h-64 w-64 rounded-full bg-primary/10 blur-3xl"></div>
+            <div class="absolute left-[-4rem] bottom-[-4rem] h-48 w-48 rounded-full bg-accent/10 blur-3xl"></div>
+          </div>
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-18 lg:py-20 relative">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <div class="space-y-6">
+                <p class="inline-flex items-center rounded-full bg-white px-3 py-2 text-xs font-semibold text-primary shadow-sm ring-1 ring-primary/10">New collection · Summer 24</p>
+                <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+                  Curated products built for modern lifestyles.
+                </h1>
+                <p class="text-lg text-slate-600 max-w-2xl">
+                  Discover tech-forward essentials, hand-picked by our editors. Everything is crafted for performance, sustainability, and design.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                  <a href="#products" class="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-white font-semibold shadow-glass transition hover:-translate-y-0.5">
+                    Shop collection
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </a>
+                  <button class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-slate-700 font-semibold shadow-sm hover:border-primary/50">
+                    Explore stories
+                  </button>
+                </div>
+                <div class="flex items-center gap-8 text-sm text-slate-500">
+                  <div class="flex items-center gap-2">
+                    <span class="h-10 w-10 rounded-full bg-white grid place-items-center shadow">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-10.5A1.125 1.125 0 0 1 3 20.625V8.625c0-.621.504-1.125 1.125-1.125H7.5M15.75 17.25H18a1.125 1.125 0 0 0 1.125-1.125V12.75M15.75 17.25H9.375c-.621 0-1.125-.504-1.125-1.125V5.625c0-.621.504-1.125 1.125-1.125h6.75c.621 0 1.125.504 1.125 1.125v3.75M18.75 9l-7.5-7.5" />
+                      </svg>
+                    </span>
+                    <span>Fast &amp; free delivery</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-10 w-10 rounded-full bg-white grid place-items-center shadow">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m5.106 2.708A9.004 9.004 0 0 1 12 21a9.003 9.003 0 0 1-8.106-8.542C3.423 6.17 7.273 3 12 3c4.728 0 8.577 3.17 9.106 7.458Z" />
+                      </svg>
+                    </span>
+                    <span>Quality guaranteed</span>
+                  </div>
+                </div>
+              </div>
+              <div class="relative">
+                <div class="relative rounded-3xl bg-white shadow-xl ring-1 ring-slate-100 overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80" alt="Showcase of minimalist smartwatch" class="h-full w-full object-cover" />
+                  <div class="absolute inset-x-4 bottom-4 rounded-2xl bg-white/80 backdrop-blur px-5 py-4 shadow-lg">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <p class="text-sm text-slate-500">Editor’s pick</p>
+                        <p class="text-lg font-semibold text-slate-900">Aura Smartwatch</p>
+                      </div>
+                      <span class="rounded-lg bg-primary/10 px-3 py-1 text-sm font-semibold text-primary">$249</span>
+                    </div>
+                    <div class="mt-3 flex items-center gap-3">
+                      <div class="flex -space-x-2">
+                        <img class="h-9 w-9 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=12" alt="Customer" />
+                        <img class="h-9 w-9 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=32" alt="Customer" />
+                        <img class="h-9 w-9 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=45" alt="Customer" />
+                      </div>
+                      <p class="text-sm text-slate-600">2k+ customers love this wearable.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="highlights" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid gap-6 md:grid-cols-3">
+            <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
+              <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary grid place-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold">Fast checkout</h3>
+              <p class="mt-2 text-sm text-slate-600">Optimized flow with digital wallets, secure payment rails, and streamlined UX.</p>
+            </div>
+            <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
+              <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary grid place-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m5.106 2.708A9.004 9.004 0 0 1 12 21a9.003 9.003 0 0 1-8.106-8.542C3.423 6.17 7.273 3 12 3c4.728 0 8.577 3.17 9.106 7.458Z" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold">Trusted sellers</h3>
+              <p class="mt-2 text-sm text-slate-600">All vendors are reviewed and monitored with transparent quality scores.</p>
+            </div>
+            <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
+              <div class="h-12 w-12 rounded-xl bg-primary/10 text-primary grid place-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9" />
+                </svg>
+              </div>
+              <h3 class="mt-4 text-lg font-semibold">Expand collection</h3>
+              <p class="mt-2 text-sm text-slate-600">Curate new product drops weekly, personalized to your browsing history.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="products" class="bg-white/60 border-y border-slate-100 py-12">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h2 class="text-2xl font-semibold text-slate-900">Featured products</h2>
+                <p class="text-sm text-slate-600">Curated picks for the week. Filter by category or use search to find what you need.</p>
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                <div class="relative">
+                  <input
+                    id="search-input"
+                    type="search"
+                    placeholder="Search products"
+                    class="w-64 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-primary focus:outline-none"
+                  />
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 5.64 5.64a7.5 7.5 0 0 0 10.61 10.61Z" />
+                  </svg>
+                </div>
+                <div class="flex flex-wrap gap-2" id="filter-tags">
+                  <button data-category="all" class="filter-tag">All</button>
+                  <button data-category="wearables" class="filter-tag">Wearables</button>
+                  <button data-category="home" class="filter-tag">Home</button>
+                  <button data-category="audio" class="filter-tag">Audio</button>
+                  <button data-category="work" class="filter-tag">Work</button>
+                </div>
+              </div>
+            </div>
+            <div id="product-grid" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid items-center gap-10 lg:grid-cols-2">
+            <div class="rounded-3xl bg-gradient-to-br from-primary to-indigo-600 p-8 text-white shadow-lg">
+              <div class="flex items-center gap-3 text-sm font-semibold text-white/90">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-white/10">✨</span>
+                Member perks
+              </div>
+              <h3 class="mt-4 text-2xl font-semibold">Earn rewards on every purchase.</h3>
+              <p class="mt-3 text-white/80">
+                Collect points, unlock exclusive drops, and get early access to curated collections. Manage everything from your dashboard.
+              </p>
+              <div class="mt-6 flex flex-wrap gap-4 text-sm">
+                <span class="rounded-full bg-white/15 px-4 py-2">Priority shipping</span>
+                <span class="rounded-full bg-white/15 px-4 py-2">Extended returns</span>
+                <span class="rounded-full bg-white/15 px-4 py-2">Personal styling</span>
+              </div>
+              <button class="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-primary font-semibold shadow-lg">
+                Join now
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
+                </svg>
+              </button>
+            </div>
+            <div class="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100">
+              <div class="flex items-center gap-3 text-sm font-semibold text-primary">
+                <span class="grid h-10 w-10 place-items-center rounded-2xl bg-primary/10 text-lg">📦</span>
+                Live delivery tracker
+              </div>
+              <div class="mt-6 space-y-3">
+                <div class="flex items-center justify-between text-sm text-slate-600">
+                  <span>Order #24810</span>
+                  <span class="text-primary font-semibold">In transit</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-slate-100">
+                  <div class="h-full w-3/4 rounded-full bg-primary"></div>
+                </div>
+                <div class="grid grid-cols-3 gap-3 text-xs text-slate-500">
+                  <div class="rounded-2xl border border-slate-100 p-3">
+                    <p class="font-semibold text-slate-700">Packed</p>
+                    <p>2:12 PM</p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-100 p-3">
+                    <p class="font-semibold text-slate-700">Left facility</p>
+                    <p>6:45 PM</p>
+                  </div>
+                  <div class="rounded-2xl border border-slate-100 p-3">
+                    <p class="font-semibold text-slate-700">ETA</p>
+                    <p>Tomorrow</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-6 rounded-2xl bg-slate-50 p-4 text-sm text-slate-600 flex items-start gap-3">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-primary/10 text-primary">💬</span>
+                <p>"The experience feels premium. Checkout is fast and transparent." — Nova, verified buyer</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="cta" class="bg-slate-900 text-white">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+            <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+              <div class="space-y-4">
+                <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs font-semibold">Stay ahead</p>
+                <h3 class="text-3xl font-semibold">Weekly drops and community-only perks.</h3>
+                <p class="text-white/80">
+                  Subscribe to get curated recommendations, launch alerts, and behind-the-scenes stories from the makers.
+                </p>
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                  <input type="email" placeholder="Email address" class="w-full sm:flex-1 rounded-xl border border-white/10 bg-white/10 px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:border-white/40" />
+                  <button class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-slate-900 font-semibold shadow-lg">
+                    Subscribe
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-sm font-semibold">1M+</p>
+                  <p class="text-sm text-white/70">Monthly shoppers</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-sm font-semibold">98%</p>
+                  <p class="text-sm text-white/70">Satisfaction score</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-sm font-semibold">300+</p>
+                  <p class="text-sm text-white/70">Independent makers</p>
+                </div>
+                <div class="rounded-2xl bg-white/5 p-4">
+                  <p class="text-sm font-semibold">24/7</p>
+                  <p class="text-sm text-white/70">Concierge support</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="border-t border-slate-200 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p class="text-lg font-semibold text-primary">Pulse</p>
+            <p class="text-sm text-slate-500">Design-forward shopping built with Tailwind CSS.</p>
+          </div>
+          <div class="flex items-center gap-3 text-sm text-slate-500">
+            <a href="#" class="hover:text-primary">Privacy</a>
+            <a href="#" class="hover:text-primary">Terms</a>
+            <a href="#" class="hover:text-primary">Support</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>
