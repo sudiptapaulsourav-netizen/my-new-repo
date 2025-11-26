@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaShop | Modern Ecommerce</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">NovaShop</div>
+    <nav class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+    <button class="cart" id="cart-toggle" aria-label="View shopping cart">
+      <span class="cart-count" id="cart-count">0</span>
+      🛒
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Free shipping on orders over $50</p>
+        <h1>Shop the latest gear built for performance and comfort.</h1>
+        <p class="lede">Curated essentials for everyday adventures—crafted sustainably, delivered fast.</p>
+        <div class="actions">
+          <a class="btn primary" href="#products">Browse collection</a>
+          <a class="btn ghost" href="#about">Learn more</a>
+        </div>
+        <div class="highlights">
+          <div>
+            <strong>48hr</strong>
+            <span>Delivery guarantee</span>
+          </div>
+          <div>
+            <strong>4.8/5</strong>
+            <span>Customer rating</span>
+          </div>
+          <div>
+            <strong>Eco</strong>
+            <span>Recycled materials</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-tag">New Arrival</div>
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Model wearing a jacket" />
+        <div class="card-footer">
+          <div>
+            <p class="card-title">AeroShell Jacket</p>
+            <p class="card-sub">Lightweight, windproof, water-resistant.</p>
+          </div>
+          <span class="price">$129</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="strip" id="about">
+      <div class="pill">Sustainably made</div>
+      <div class="pill">Lifetime repairs</div>
+      <div class="pill">Carbon-neutral shipping</div>
+      <div class="pill">Rewards on every order</div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Featured collection</p>
+          <h2>Built to move with you</h2>
+          <p class="lede">Mix and match versatile pieces designed for work, travel, and everything in between.</p>
+        </div>
+        <div class="filter">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="all">All</option>
+            <option value="outerwear">Outerwear</option>
+            <option value="footwear">Footwear</option>
+            <option value="accessories">Accessories</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="product-grid">
+        <!-- Cards populated by JavaScript -->
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+      <div class="section-header">
+        <p class="eyebrow">Loved by explorers</p>
+        <h2>Customer stories</h2>
+        <p class="lede">Real feedback from people who rely on NovaShop gear every day.</p>
+      </div>
+      <div class="quotes">
+        <article class="quote">
+          <p class="quote-body">“The quality is unmatched—everything feels purposeful and durable.”</p>
+          <div class="quote-meta">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Portrait of Emma" />
+            <div>
+              <p class="name">Emma Collins</p>
+              <p class="role">Photographer & traveler</p>
+            </div>
+          </div>
+        </article>
+        <article class="quote">
+          <p class="quote-body">“Fast shipping, thoughtful packaging, and styles that work for every season.”</p>
+          <div class="quote-meta">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80" alt="Portrait of Michael" />
+            <div>
+              <p class="name">Michael Chen</p>
+              <p class="role">Cyclist & remote worker</p>
+            </div>
+          </div>
+        </article>
+        <article class="quote">
+          <p class="quote-body">“I love the rewards program. I’ve replaced most of my wardrobe with NovaShop staples.”</p>
+          <div class="quote-meta">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Portrait of Aisha" />
+            <div>
+              <p class="name">Aisha Rahman</p>
+              <p class="role">Designer</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div>
+        <p class="eyebrow">Stay in the loop</p>
+        <h2>Get product drops and style guides.</h2>
+        <p class="lede">Sign up for curated tips, first access to new releases, and exclusive offers.</p>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" type="email" name="email" placeholder="you@example.com" required />
+        <button type="submit" class="btn primary">Subscribe</button>
+        <p class="form-message" id="form-message" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cart-panel" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>Your cart</h3>
+      <button class="icon" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <ul class="cart-items" id="cart-items"></ul>
+    <div class="cart-summary">
+      <div class="row"><span>Subtotal</span><span id="cart-subtotal">$0</span></div>
+      <div class="row"><span>Shipping</span><span>Free</span></div>
+      <div class="row total"><span>Total</span><span id="cart-total">$0</span></div>
+      <button class="btn primary full" id="checkout" disabled>Checkout</button>
+      <p class="cart-note">No payment needed—this is a demo experience.</p>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <footer class="footer">
+    <div>
+      <p class="brand">NovaShop</p>
+      <p class="lede">Modern essentials designed for everyday life.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <h4>Shop</h4>
+        <a href="#products">Outerwear</a>
+        <a href="#products">Footwear</a>
+        <a href="#products">Accessories</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#testimonials">Stories</a>
+        <a href="#newsletter">Newsletter</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
