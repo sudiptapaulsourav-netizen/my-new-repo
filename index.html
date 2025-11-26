@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureShop | Responsive Ecommerce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur shadow-sm">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500"></div>
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-blue-500">Secure Commerce</p>
+          <p class="text-xl font-semibold">SecureShop</p>
+        </div>
+      </div>
+      <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#shop">Shop</a>
+        <a class="nav-link" href="#cart">Cart</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <div class="relative">
+          <span class="cart-indicator" id="cart-count">0</span>
+          <svg class="h-7 w-7 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m4-9v9m4-9l2 9" />
+          </svg>
+        </div>
+        <button class="rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:scale-105">Secure Checkout</button>
+        <button class="rounded-lg border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 md:hidden" id="menu-toggle">Menu</button>
+      </div>
+    </div>
+    <div class="mobile-nav hidden flex-col gap-4 px-6 pb-4 text-sm font-medium text-slate-700 md:hidden" id="mobile-menu">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#shop">Shop</a>
+      <a class="nav-link" href="#cart">Cart</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="home" class="mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-20 pt-12 md:pt-16">
+    <section class="grid gap-10 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-8 py-10 text-white shadow-2xl lg:grid-cols-[1.2fr_1fr]">
+      <div class="flex flex-col gap-6">
+        <p class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Encrypted Checkout</p>
+        <h1 class="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">Shop with confidence using SSL, 2FA, and secure payment processing.</h1>
+        <p class="text-base text-slate-200 sm:text-lg">Built with responsive TailwindCSS, SecureShop keeps your cart, payments, and identity protected with the latest security practices.</p>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="#shop" class="button-primary">Start Shopping</a>
+          <a href="#checkout" class="button-secondary">View Secure Checkout</a>
+        </div>
+        <div class="grid grid-cols-2 gap-4 text-sm text-slate-200 sm:w-3/4">
+          <div class="rounded-xl bg-white/5 p-4">
+            <p class="font-semibold text-white">SSL Everywhere</p>
+            <p class="text-slate-300">Ready for HTTPS hosting with HSTS, CSP, and modern TLS.</p>
+          </div>
+          <div class="rounded-xl bg-white/5 p-4">
+            <p class="font-semibold text-white">Two-Factor Auth</p>
+            <p class="text-slate-300">Challenge codes keep your checkout protected end-to-end.</p>
+          </div>
+        </div>
+      </div>
+      <div class="relative flex items-center justify-center">
+        <div class="floating-card">
+          <p class="text-sm font-semibold text-slate-300">Live Protection</p>
+          <p class="mt-2 text-3xl font-bold text-white">99.99%</p>
+          <p class="text-slate-400">uptime with encrypted traffic</p>
+          <div class="mt-4 flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm text-slate-200">
+            <svg class="h-6 w-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            PCI-compliant payment routing
+          </div>
+          <div class="mt-2 flex items-center gap-3 rounded-xl bg-white/10 px-4 py-3 text-sm text-slate-200">
+            <svg class="h-6 w-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            3D Secure & fraud monitoring
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="flex flex-col gap-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold text-blue-600">Shop</p>
+          <h2 class="text-2xl font-bold text-slate-900 sm:text-3xl">Featured products</h2>
+        </div>
+        <div class="hidden rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 md:flex">Hover a card to see details</div>
+      </div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="product-card" data-product="Quantum Headphones" data-price="199.00">
+          <div class="product-image bg-gradient-to-br from-indigo-500 to-cyan-500">
+            <img src="https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=800&q=80" alt="Wireless headphones" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-lg font-semibold">Quantum Headphones</h3>
+            <p class="text-sm text-slate-600">Spatial audio with adaptive noise cancelation.</p>
+            <div class="flex items-center justify-between pt-2">
+              <p class="text-xl font-bold text-slate-900">$199.00</p>
+              <button class="button-ghost add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-product="Aurora Smartwatch" data-price="249.00">
+          <div class="product-image bg-gradient-to-br from-slate-800 via-slate-900 to-blue-800">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartwatch" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-lg font-semibold">Aurora Smartwatch</h3>
+            <p class="text-sm text-slate-600">Health metrics, secure wallet, and 2FA unlock.</p>
+            <div class="flex items-center justify-between pt-2">
+              <p class="text-xl font-bold text-slate-900">$249.00</p>
+              <button class="button-ghost add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+        <article class="product-card" data-product="Nebula Backpack" data-price="129.00">
+          <div class="product-image bg-gradient-to-br from-emerald-500 to-lime-400">
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="Backpack" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-lg font-semibold">Nebula Backpack</h3>
+            <p class="text-sm text-slate-600">Weatherproof materials with RFID-safe pockets.</p>
+            <div class="flex items-center justify-between pt-2">
+              <p class="text-xl font-bold text-slate-900">$129.00</p>
+              <button class="button-ghost add-to-cart">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="cart" class="grid gap-6 rounded-2xl bg-white p-6 shadow-lg lg:grid-cols-[1.2fr_1fr]">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold text-slate-900">Your cart</h2>
+          <span class="rounded-full bg-blue-600 px-3 py-1 text-sm font-semibold text-white" id="cart-pill">0 items</span>
+        </div>
+        <div id="cart-items" class="flex flex-col gap-3 text-sm text-slate-700">
+          <p class="rounded-xl bg-slate-50 p-4 text-slate-600">Add products to see them here. We encrypt cart data before checkout.</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 rounded-xl border border-slate-200 p-5">
+        <h3 class="text-lg font-semibold text-slate-900">Security highlights</h3>
+        <ul class="flex flex-col gap-2 text-sm text-slate-700">
+          <li class="flex items-center gap-2"><span class="badge">SSL</span> TLS 1.3 with HSTS and modern ciphers</li>
+          <li class="flex items-center gap-2"><span class="badge">2FA</span> Time-based code challenge for checkout</li>
+          <li class="flex items-center gap-2"><span class="badge">PCI</span> PCI-DSS ready payment flow with providers</li>
+        </ul>
+        <div class="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 p-4 text-sm text-white shadow-lg">
+          <p class="font-semibold">Secure payment gateways</p>
+          <p class="text-blue-50">Stripe and PayPal integrations are ready for test mode. Swap in your API keys when deploying.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="checkout" class="grid gap-6 rounded-2xl bg-white p-6 shadow-lg lg:grid-cols-[1.1fr_1fr]">
+      <div class="flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-semibold text-blue-600">Checkout</p>
+            <h2 class="text-2xl font-bold text-slate-900">Secure payment processing</h2>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">
+            <div class="h-2 w-2 rounded-full bg-emerald-500"></div>
+            Protected
+          </div>
+        </div>
+        <form id="payment-form" class="grid gap-4 sm:grid-cols-2">
+          <label class="form-field">
+            <span>Full name</span>
+            <input type="text" name="name" required placeholder="Alex Doe" />
+          </label>
+          <label class="form-field">
+            <span>Email</span>
+            <input type="email" name="email" required placeholder="alex@example.com" />
+          </label>
+          <label class="form-field sm:col-span-2">
+            <span>Shipping address</span>
+            <input type="text" name="address" required placeholder="123 Secure Street, Suite 100" />
+          </label>
+          <div class="sm:col-span-2">
+            <p class="mb-2 text-sm font-semibold text-slate-800">Choose a payment gateway</p>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <label class="gateway">
+                <input type="radio" name="gateway" value="stripe" class="peer" checked />
+                <div class="gateway-body">
+                  <div class="flex items-center gap-3">
+                    <img src="https://brand.stripe.com/img/v3/home/social.png" alt="Stripe" class="h-6" />
+                    <p class="text-sm font-semibold">Stripe</p>
+                  </div>
+                  <p class="text-xs text-slate-500">Tokenized cards, SCA, and webhook-ready.</p>
+                </div>
+              </label>
+              <label class="gateway">
+                <input type="radio" name="gateway" value="paypal" class="peer" />
+                <div class="gateway-body">
+                  <div class="flex items-center gap-3">
+                    <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" class="h-6" />
+                    <p class="text-sm font-semibold">PayPal</p>
+                  </div>
+                  <p class="text-xs text-slate-500">Express checkout with buyer protection.</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <label class="form-field">
+            <span>Card number</span>
+            <input type="text" name="card" inputmode="numeric" maxlength="19" required placeholder="4242 4242 4242 4242" />
+          </label>
+          <label class="form-field">
+            <span>Expiry</span>
+            <input type="text" name="expiry" required placeholder="06/28" />
+          </label>
+          <label class="form-field">
+            <span>CVC</span>
+            <input type="text" name="cvc" inputmode="numeric" maxlength="4" required placeholder="123" />
+          </label>
+          <label class="form-field">
+            <span>Zip</span>
+            <input type="text" name="zip" required placeholder="94103" />
+          </label>
+          <div class="sm:col-span-2">
+            <p class="text-sm font-semibold text-slate-800">Two-factor authentication</p>
+            <div class="grid gap-3 sm:grid-cols-[1fr_auto_auto] sm:items-center">
+              <input type="text" id="twofactor-code" class="input" placeholder="Enter 6-digit code" />
+              <button type="button" class="button-secondary" id="send-code">Send code</button>
+              <button type="button" class="button-primary" id="verify-code">Verify</button>
+            </div>
+            <p class="mt-2 text-xs text-slate-500">We generate a one-time code and require it before authorizing payment.</p>
+          </div>
+          <div class="sm:col-span-2 flex flex-col gap-2">
+            <button type="submit" class="button-primary">Process Secure Payment</button>
+            <p id="payment-status" class="text-sm text-slate-600">Awaiting secure checkout...</p>
+          </div>
+        </form>
+      </div>
+      <div class="flex flex-col gap-4 rounded-xl bg-slate-50 p-5">
+        <div class="flex items-center gap-3">
+          <div class="shield">SSL</div>
+          <div>
+            <p class="font-semibold text-slate-900">Encrypted transport</p>
+            <p class="text-sm text-slate-600">Serve this site over HTTPS with HSTS and TLS 1.3. Assets use HTTPS CDNs.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="shield">2FA</div>
+          <div>
+            <p class="font-semibold text-slate-900">Identity verification</p>
+            <p class="text-sm text-slate-600">Challenge every payment with a one-time code and optional 3D Secure.</p>
+          </div>
+        </div>
+        <div class="rounded-xl border border-slate-200 bg-white p-4">
+          <h3 class="text-lg font-semibold text-slate-900">Security checklist</h3>
+          <ul class="mt-2 space-y-2 text-sm text-slate-700">
+            <li>✔ Host on HTTPS with automatic certificate renewal.</li>
+            <li>✔ Use Stripe keys stored server-side and swap test keys for live.</li>
+            <li>✔ Validate webhooks and enable PayPal IPN/ACS for fraud defense.</li>
+            <li>✔ Keep dependencies updated and audit with security scans.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer id="contact" class="border-t border-slate-200 bg-white">
+    <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex flex-col gap-1">
+        <p class="text-sm font-semibold text-blue-600">SecureShop</p>
+        <p class="text-sm text-slate-600">Crafted with HTTPS, 2FA, and trusted gateways.</p>
+      </div>
+      <div class="flex items-center gap-4 text-slate-500">
+        <a class="social" href="https://twitter.com" aria-label="Twitter">Twitter</a>
+        <a class="social" href="https://facebook.com" aria-label="Facebook">Facebook</a>
+        <a class="social" href="https://instagram.com" aria-label="Instagram">Instagram</a>
+      </div>
+      <p class="text-xs text-slate-500">© 2024 SecureShop. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
