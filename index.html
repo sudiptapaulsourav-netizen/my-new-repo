@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumen Threads | Elevated Everyday Essentials</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            midnight: '#0f172a',
+            accent: '#7c3aed',
+            sand: '#f7f3eb'
+          },
+          fontFamily: {
+            display: ['"Inter"', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 12px 50px rgba(15, 23, 42, 0.18)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-sand text-midnight font-display dark:bg-slate-950 dark:text-slate-100">
+  <header class="sticky top-0 z-40 bg-sand/90 backdrop-blur border-b border-slate-200 dark:bg-slate-900/80 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-3 text-lg font-bold tracking-tight">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-midnight text-white shadow-soft">LT</span>
+          <span class="hidden sm:block">Lumen Threads</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#collections" class="hover:text-accent transition">Collections</a>
+          <a href="#bestsellers" class="hover:text-accent transition">Bestsellers</a>
+          <a href="#story" class="hover:text-accent transition">Our Story</a>
+          <a href="#newsletter" class="hover:text-accent transition">Updates</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button id="theme-toggle" aria-label="Toggle theme" class="hidden sm:inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-medium border border-slate-200 hover:border-accent hover:text-accent transition dark:border-slate-700 dark:hover:border-accent dark:text-slate-100">
+            <span id="theme-label">Light</span>
+            <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="h-4 w-4"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.5M12 18.5V21M4.75 12H3m18 0h-1.75M6.5 6.5 5 5m14 14-1.5-1.5M6.5 17.5 5 19m14-14-1.5 1.5M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/></svg>
+          </button>
+          <button id="cart-button" class="relative inline-flex items-center gap-2 rounded-full bg-midnight text-white px-4 py-2 text-sm font-semibold shadow-soft hover:-translate-y-0.5 transition">
+            <span>Cart</span>
+            <span id="cart-count" class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/15 text-white text-xs font-semibold">0</span>
+          </button>
+          <button id="menu-toggle" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-xl border border-slate-200 text-midnight hover:border-accent hover:text-accent transition dark:border-slate-700 dark:text-slate-100" aria-expanded="false" aria-controls="mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 pb-4">
+        <div class="pt-3 space-y-2 text-sm font-medium">
+          <a href="#collections" class="block px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Collections</a>
+          <a href="#bestsellers" class="block px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Bestsellers</a>
+          <a href="#story" class="block px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Our Story</a>
+          <a href="#newsletter" class="block px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">Updates</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden bg-gradient-to-br from-sand via-white to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-900">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white shadow-soft border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">New Drop • Summer 24</div>
+          <h1 class="text-4xl sm:text-5xl font-bold leading-tight text-midnight dark:text-slate-50">Timeless silhouettes crafted for everyday adventures.</h1>
+          <p class="text-lg text-slate-600 max-w-xl dark:text-slate-300">Discover breathable fabrics, mindful tailoring, and versatile colors made to move with you from morning commute to midnight gatherings.</p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#bestsellers" class="inline-flex items-center justify-center px-5 py-3 rounded-full bg-midnight text-white text-sm font-semibold shadow-soft hover:-translate-y-0.5 transition">Shop bestsellers</a>
+            <a href="#story" class="inline-flex items-center justify-center px-5 py-3 rounded-full border border-slate-200 text-midnight text-sm font-semibold hover:border-accent hover:text-accent transition dark:border-slate-800 dark:text-slate-100">See how we craft</a>
+          </div>
+          <div class="flex items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+            <div class="flex items-center gap-2">
+              <span class="h-10 w-10 rounded-full bg-white shadow-soft flex items-center justify-center text-accent font-semibold">4.9</span>
+              <div>
+                <p class="font-semibold text-midnight dark:text-slate-100">Trusted by 18k+</p>
+                <p>Design-forward shoppers</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="h-10 w-10 rounded-full bg-white shadow-soft flex items-center justify-center text-midnight font-semibold dark:bg-slate-900 dark:text-slate-100">48h</span>
+              <div>
+                <p class="font-semibold text-midnight dark:text-slate-100">Express delivery</p>
+                <p>On most regions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -left-8 -top-6 h-32 w-32 rounded-full bg-accent/10 blur-3xl"></div>
+          <div class="absolute -right-16 top-16 h-24 w-24 rounded-full bg-accent/20 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-3xl shadow-soft border border-slate-100">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80" alt="Minimalist fashion photography" class="w-full h-full object-cover" />
+            <div class="absolute bottom-4 left-4 bg-white/80 backdrop-blur rounded-2xl px-4 py-3 text-sm font-semibold text-midnight shadow-soft">
+              Light, breathable layers crafted from organic cotton and recycled fibers.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collections" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <p class="text-xs font-semibold text-accent uppercase tracking-wider">Editor's picks</p>
+          <h2 class="text-3xl font-bold text-midnight dark:text-slate-50">Explore collections</h2>
+        </div>
+        <div class="flex flex-wrap gap-3" id="category-filters">
+          <button data-category="all" class="filter-chip inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-midnight shadow-soft transition hover:-translate-y-0.5 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100">All</button>
+          <button data-category="Outerwear" class="filter-chip inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-midnight shadow-soft transition hover:-translate-y-0.5 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100">Outerwear</button>
+          <button data-category="Essentials" class="filter-chip inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-midnight shadow-soft transition hover:-translate-y-0.5 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100">Essentials</button>
+          <button data-category="Active" class="filter-chip inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-midnight shadow-soft transition hover:-translate-y-0.5 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100">Active</button>
+          <button data-category="Accessories" class="filter-chip inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-midnight shadow-soft transition hover:-translate-y-0.5 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-100">Accessories</button>
+        </div>
+      </div>
+      <div class="flex flex-col lg:flex-row lg:items-center gap-4">
+        <div class="relative w-full lg:max-w-md">
+          <input id="search-input" type="search" placeholder="Search by style or fabric" class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 pl-11 text-sm text-midnight shadow-soft focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute left-3 top-3.5 h-5 w-5 text-slate-400">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+        </div>
+        <div class="flex items-center gap-3 text-sm text-slate-600 dark:text-slate-300">
+          <label for="sort-select" class="font-semibold">Sort</label>
+          <select id="sort-select" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-midnight shadow-soft focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100">
+            <option value="featured">Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3" id="product-grid"></div>
+    </section>
+
+    <section id="bestsellers" class="bg-midnight text-white py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <p class="text-xs font-semibold uppercase tracking-wider text-white/70">Season highlights</p>
+          <h2 class="text-3xl font-bold">Bestsellers engineered to last</h2>
+          <p class="text-white/80">Every piece is rigorously tested for color fastness, fit retention, and freedom of movement. We partner with ethical factories to deliver premium quality without compromise.</p>
+          <div class="grid sm:grid-cols-3 gap-4 text-sm">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="font-semibold">Water-repellent</p>
+              <p class="text-white/70">Nano-finish keeps you dry on the go.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="font-semibold">Adaptive stretch</p>
+              <p class="text-white/70">Four-way stretch for effortless movement.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="font-semibold">Mindful sourcing</p>
+              <p class="text-white/70">Certified organic and recycled fibers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div class="rounded-3xl overflow-hidden shadow-soft border border-white/10 bg-white/5">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Elevated essentials" class="w-full h-64 object-cover">
+            <div class="p-5 space-y-2">
+              <p class="text-sm font-semibold text-white/70">Layer-ready collection</p>
+              <p class="text-lg font-bold">AirLoft Field Jacket</p>
+              <p class="text-white/70">Featherlight insulation and seam-sealed detailing.</p>
+            </div>
+          </div>
+          <div class="rounded-3xl overflow-hidden shadow-soft border border-white/10 bg-white/5">
+            <img src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=900&q=80" alt="Activewear" class="w-full h-64 object-cover">
+            <div class="p-5 space-y-2">
+              <p class="text-sm font-semibold text-white/70">Active staples</p>
+              <p class="text-lg font-bold">StrideFlex Jogger</p>
+              <p class="text-white/70">Moisture-wicking knit designed for city sprints.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="story" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid lg:grid-cols-3 gap-10 items-start">
+      <div class="lg:col-span-2 space-y-6">
+        <p class="text-xs font-semibold text-accent uppercase tracking-wider">The craft</p>
+        <h2 class="text-3xl font-bold text-midnight dark:text-slate-50">Material science meets purposeful design</h2>
+        <p class="text-slate-600 text-lg dark:text-slate-300">We partner with mills across Portugal and Japan to create proprietary fabrics engineered for breathability, durability, and soft touch. Every garment undergoes 14-point quality checks before reaching your doorstep.</p>
+        <div class="grid sm:grid-cols-2 gap-4 text-sm">
+          <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+            <p class="font-semibold text-midnight dark:text-slate-100">Traceable fibers</p>
+            <p class="text-slate-600 dark:text-slate-300">All cotton is BCI-certified, with full transparency on origin.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+            <p class="font-semibold text-midnight dark:text-slate-100">Circular design</p>
+            <p class="text-slate-600 dark:text-slate-300">Modular panels and repair kits extend each piece's lifecycle.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+            <p class="font-semibold text-midnight dark:text-slate-100">Small-batch runs</p>
+            <p class="text-slate-600 dark:text-slate-300">Limited quantities reduce waste and overproduction.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-soft dark:border-slate-800 dark:bg-slate-900">
+            <p class="font-semibold text-midnight dark:text-slate-100">Comfort tested</p>
+            <p class="text-slate-600 dark:text-slate-300">Wear-tested by commuters, designers, and athletes alike.</p>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-soft bg-white dark:border-slate-800 dark:bg-slate-900">
+          <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80" alt="Tailoring studio" class="w-full h-52 object-cover">
+          <div class="p-5 space-y-2">
+            <p class="text-sm font-semibold text-accent">A modern atelier</p>
+            <p class="text-slate-600 dark:text-slate-300">Clean-lined silhouettes thoughtfully cut in San Francisco and Seoul.</p>
+          </div>
+        </div>
+        <div class="rounded-3xl overflow-hidden border border-slate-200 shadow-soft bg-white dark:border-slate-800 dark:bg-slate-900">
+          <div class="p-5 space-y-3">
+            <p class="text-sm font-semibold text-midnight dark:text-slate-100">Sustainability score</p>
+            <div class="flex items-center gap-3">
+              <div class="w-full h-2 rounded-full bg-slate-100">
+                <div class="h-2 rounded-full bg-accent" style="width: 86%"></div>
+              </div>
+              <span class="text-sm font-bold text-midnight dark:text-slate-100">86%</span>
+            </div>
+            <p class="text-slate-600 text-sm dark:text-slate-300">Measured across water conservation, recyclability, and fair labor practices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="bg-white border-y border-slate-200 py-16 dark:bg-slate-950 dark:border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+        <div class="space-y-5">
+          <p class="text-xs font-semibold text-accent uppercase tracking-wider">Stay ahead</p>
+          <h2 class="text-3xl font-bold text-midnight dark:text-slate-50">Get design notes, product drops, and early access.</h2>
+          <p class="text-slate-600 text-lg dark:text-slate-300">We respect your inbox. Expect one concise email a week with thoughtful stories behind the pieces and private previews.</p>
+        </div>
+        <form class="bg-slate-50 border border-slate-200 rounded-3xl shadow-soft p-6 space-y-4 dark:bg-slate-900 dark:border-slate-800">
+          <div>
+            <label class="block text-sm font-semibold text-midnight dark:text-slate-100 mb-2" for="email">Email</label>
+            <input id="email" type="email" required placeholder="you@example.com" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500" />
+          </div>
+          <div class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+            <input type="checkbox" id="updates" class="mt-1 rounded border-slate-300 text-accent focus:ring-accent">
+            <label for="updates">Send me styling advice and member-only perks.</label>
+          </div>
+          <button type="submit" class="w-full inline-flex justify-center items-center rounded-xl bg-midnight text-white px-4 py-3 text-sm font-semibold shadow-soft hover:-translate-y-0.5 transition">Join the list</button>
+          <p class="text-xs text-slate-500">By subscribing, you agree to receive emails from Lumen Threads. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-midnight text-white py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8">
+      <div class="md:col-span-2 space-y-3">
+        <div class="inline-flex items-center gap-2 text-lg font-bold tracking-tight">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10 text-white shadow-soft">LT</span>
+          <span>Lumen Threads</span>
+        </div>
+        <p class="text-white/70 max-w-lg">Design-led apparel crafted to stand up to the rhythm of modern life. Built responsibly, meant to be worn relentlessly.</p>
+        <div class="flex items-center gap-4 text-sm text-white/70">
+          <span>Instagram</span>
+          <span>Behance</span>
+          <span>LinkedIn</span>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm font-semibold mb-3">Help</p>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li>Support</li>
+          <li>Returns</li>
+          <li>Careers</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold mb-3">Visit</p>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li>San Francisco</li>
+          <li>London</li>
+          <li>Seoul</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-xs text-white/50">© 2024 Lumen Threads. Built with thoughtful materials and modern JavaScript.</div>
+  </footer>
+
+  <template id="product-card-template">
+    <div class="product-card rounded-3xl border border-slate-200 bg-white shadow-soft overflow-hidden flex flex-col dark:border-slate-800 dark:bg-slate-900">
+      <div class="relative">
+        <img class="product-image w-full h-56 object-cover" alt="Product image" />
+        <span class="badge absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-white px-3 py-1 text-xs font-semibold text-midnight shadow-soft"></span>
+        <button class="favorite-btn absolute right-3 top-3 h-10 w-10 rounded-full bg-white text-slate-700 shadow-soft flex items-center justify-center hover:text-accent transition" aria-label="Favorite">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="p-5 space-y-3 flex-1 flex flex-col">
+        <div class="flex items-center justify-between text-xs text-slate-500 font-semibold dark:text-slate-300">
+          <span class="product-category"></span>
+          <span class="product-rating"></span>
+        </div>
+        <div class="space-y-1">
+          <p class="product-name text-lg font-semibold text-midnight dark:text-slate-50"></p>
+          <p class="product-description text-sm text-slate-600 dark:text-slate-300"></p>
+        </div>
+        <div class="mt-auto flex items-center justify-between">
+          <p class="product-price text-lg font-bold text-midnight dark:text-slate-50"></p>
+          <button class="add-btn inline-flex items-center gap-2 rounded-full bg-midnight text-white px-4 py-2 text-sm font-semibold shadow-soft hover:-translate-y-0.5 transition">Add to bag</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
