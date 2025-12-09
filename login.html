@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+      --accent-dark: #16a34a;
+      --danger: #ef4444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.12), transparent 35%),
+                  radial-gradient(circle at bottom right, rgba(239, 68, 68, 0.12), transparent 30%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      max-width: 420px;
+      width: 100%;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: -60% -50%;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.08), transparent 45%);
+      transform: rotate(18deg);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p.description {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: rgba(34, 197, 94, 0.6);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .link:hover {
+      color: #4ade80;
+    }
+
+    .button {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), #4ade80);
+      color: #0b0f1a;
+      border: none;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(34, 197, 94, 0.45);
+    }
+
+    .button:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+    }
+
+    .footer-text {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <div class="content">
+      <h1>Welcome back</h1>
+      <p class="description">Log in to continue to your dashboard with secure, lightning-fast access.</p>
+
+      <form>
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input class="input" type="password" id="password" name="password" placeholder="••••••••" minlength="8" required />
+        </div>
+
+        <div class="actions">
+          <label class="remember">
+            <input type="checkbox" name="remember" />
+            <span>Remember me</span>
+          </label>
+          <a class="link" href="#">Forgot password?</a>
+        </div>
+
+        <button class="button" type="submit">Log In</button>
+      </form>
+
+      <p class="footer-text">
+        New here?
+        <a class="link" href="register.html">Create an account</a>
+      </p>
+
+      <div class="badge-row">
+        <span class="badge"><span class="badge-dot"></span> Secure by default</span>
+        <span class="badge"><span class="badge-dot"></span> Fast onboarding</span>
+        <span class="badge"><span class="badge-dot"></span> 24/7 support</span>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
