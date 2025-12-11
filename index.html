@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce Role-Based Dashboards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Role-Based UI Concept</p>
+      <h1>Ecommerce Dashboards</h1>
+      <p class="hero__subtitle">Quickly preview the responsibilities, quick actions, and KPIs tailored to every operational role.</p>
+      <div class="hero__badges">
+        <span class="badge badge--green">Admin</span>
+        <span class="badge badge--blue">Moderator</span>
+        <span class="badge badge--yellow">Editor</span>
+        <span class="badge badge--orange">Cashier</span>
+        <span class="badge badge--slate">Customer</span>
+      </div>
+    </div>
+    <div class="hero__meta">
+      <div class="meta-card">
+        <p class="meta-card__label">Design priorities</p>
+        <ul>
+          <li>Summary cards</li>
+          <li>Quick actions</li>
+          <li>Activity stream</li>
+          <li>Charts & notifications</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="role-tabs" aria-label="Dashboard role switcher">
+    <button class="role-tab active" data-target="admin">Admin</button>
+    <button class="role-tab" data-target="moderator">Moderator</button>
+    <button class="role-tab" data-target="editor">Editor</button>
+    <button class="role-tab" data-target="cashier">Cashier</button>
+    <button class="role-tab" data-target="customer">Customer</button>
+  </nav>
+
+  <main>
+    <section id="admin" class="dashboard dashboard--admin active" aria-label="Admin dashboard">
+      <header class="dashboard__header">
+        <div>
+          <p class="eyebrow">Full Control</p>
+          <h2>Admin Dashboard</h2>
+          <p class="lede">Complete oversight over orders, catalog, users, finance, and platform settings.</p>
+        </div>
+        <div class="pill pill--green">Total access</div>
+      </header>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p class="summary-card__label">Total Orders</p>
+          <p class="summary-card__value">12,480</p>
+          <p class="summary-card__delta positive">+4.5% vs last week</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Total Sales</p>
+          <p class="summary-card__value">$1.28M</p>
+          <p class="summary-card__delta positive">+12.3% MoM</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Total Products</p>
+          <p class="summary-card__value">3,420</p>
+          <p class="summary-card__delta">48 low on stock</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Total Customers</p>
+          <p class="summary-card__value">98,210</p>
+          <p class="summary-card__delta positive">+1,120 new</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Today’s Sales</p>
+          <p class="summary-card__value">$42,320</p>
+          <p class="summary-card__delta positive">+9.2% today</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Cancelled Orders</p>
+          <p class="summary-card__value">72</p>
+          <p class="summary-card__delta negative">+6.1% this week</p>
+        </article>
+      </div>
+
+      <div class="grid two-columns">
+        <article class="card">
+          <div class="card__header">
+            <h3>Order Management</h3>
+            <span class="pill pill--blue">Ops</span>
+          </div>
+          <ul class="list">
+            <li>All Orders: Pending, Processing, Shipped, Delivered, Cancelled</li>
+            <li>Update Order Status</li>
+            <li>Refund Requests</li>
+          </ul>
+          <div class="quick-actions">
+            <button>View pending</button>
+            <button>Open refunds</button>
+            <button>Bulk status update</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Product Management</h3>
+            <span class="pill pill--purple">Catalog</span>
+          </div>
+          <ul class="list">
+            <li>Add / Edit / Delete product</li>
+            <li>Manage categories, brands, attributes</li>
+            <li>Stock management & low-stock alerts</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Add product</button>
+            <button>Category tree</button>
+            <button>Stock report</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>User Management</h3>
+            <span class="pill pill--slate">Access</span>
+          </div>
+          <ul class="list">
+            <li>Admin, Moderator, Editor, Cashier add / edit / delete</li>
+            <li>Customer directory</li>
+            <li>Ban / Unban users</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Invite staff</button>
+            <button>Customer list</button>
+            <button>Audit trail</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Financial Reports</h3>
+            <span class="pill pill--green">Finance</span>
+          </div>
+          <ul class="list">
+            <li>Total Revenue</li>
+            <li>Daily / Monthly sales chart</li>
+            <li>Payment gateway reports</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Download P&L</button>
+            <button>View charts</button>
+            <button>Gateway logs</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Settings</h3>
+            <span class="pill pill--orange">Platform</span>
+          </div>
+          <ul class="list">
+            <li>Website settings</li>
+            <li>Shipping settings</li>
+            <li>Payment gateway API</li>
+            <li>Coupons & discounts</li>
+            <li>Tax settings</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Update shipping</button>
+            <button>Taxes</button>
+            <button>Promo rules</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Activity & Notifications</h3>
+            <span class="pill pill--blue">Live</span>
+          </div>
+          <ul class="activity">
+            <li><strong>2m</strong> • New refund request • #OR-8831</li>
+            <li><strong>12m</strong> • Low stock alert • SKU-9981 (12 left)</li>
+            <li><strong>24m</strong> • New moderator added • Sarah N.</li>
+            <li><strong>1h</strong> • Gateway webhook verified</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="moderator" class="dashboard dashboard--moderator" aria-label="Moderator dashboard">
+      <header class="dashboard__header">
+        <div>
+          <p class="eyebrow">Order & Content Control</p>
+          <h2>Moderator Dashboard</h2>
+          <p class="lede">Assist admin by monitoring order workflow, returns, and product visibility.</p>
+        </div>
+        <div class="pill pill--blue">Operational</div>
+      </header>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p class="summary-card__label">Pending Orders</p>
+          <p class="summary-card__value">245</p>
+          <p class="summary-card__delta">Processing SLA: 35m</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Returns / Refunds</p>
+          <p class="summary-card__value">32</p>
+          <p class="summary-card__delta negative">+5 open disputes</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Content Flags</p>
+          <p class="summary-card__value">14</p>
+          <p class="summary-card__delta">Awaiting moderation</p>
+        </article>
+      </div>
+
+      <div class="grid two-columns">
+        <article class="card">
+          <div class="card__header">
+            <h3>Orders Review</h3>
+            <span class="pill pill--green">Flow</span>
+          </div>
+          <ul class="list">
+            <li>View pending orders</li>
+            <li>Update status: Processing → Shipped</li>
+            <li>Return / Refund requests</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Queue</button>
+            <button>Escalate</button>
+            <button>Mark shipped</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Customer Issues</h3>
+            <span class="pill pill--orange">Support</span>
+          </div>
+          <ul class="list">
+            <li>Support tickets</li>
+            <li>Product review moderation</li>
+            <li>Reported issues</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Open tickets</button>
+            <button>Review queue</button>
+            <button>Resolve</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Limited Product Control</h3>
+            <span class="pill pill--blue">Guardrails</span>
+          </div>
+          <ul class="list">
+            <li>Product approve / reject (from editors)</li>
+            <li>Product visibility toggle</li>
+            <li>No user or finance access</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Approvals</button>
+            <button>Visibility</button>
+            <button>Notes</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Activity</h3>
+            <span class="pill pill--slate">Live</span>
+          </div>
+          <ul class="activity">
+            <li><strong>5m</strong> • 12 new orders pending</li>
+            <li><strong>18m</strong> • 3 refunds awaiting documents</li>
+            <li><strong>47m</strong> • Product visibility toggled by Editor</li>
+            <li><strong>1h</strong> • Ticket #9932 escalated</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="editor" class="dashboard dashboard--editor" aria-label="Editor dashboard">
+      <header class="dashboard__header">
+        <div>
+          <p class="eyebrow">Product Content Manager</p>
+          <h2>Editor Dashboard</h2>
+          <p class="lede">Focus on rich product data, assets, and merchandising while staying clear of finance and orders.</p>
+        </div>
+        <div class="pill pill--yellow">Catalog creator</div>
+      </header>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p class="summary-card__label">Draft Products</p>
+          <p class="summary-card__value">38</p>
+          <p class="summary-card__delta">Ready for review</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Low Stock</p>
+          <p class="summary-card__value">48</p>
+          <p class="summary-card__delta negative">Needs restock</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Pending Approvals</p>
+          <p class="summary-card__value">12</p>
+          <p class="summary-card__delta">Awaiting moderator</p>
+        </article>
+      </div>
+
+      <div class="grid two-columns">
+        <article class="card">
+          <div class="card__header">
+            <h3>Product Management</h3>
+            <span class="pill pill--purple">Content</span>
+          </div>
+          <ul class="list">
+            <li>Add new product</li>
+            <li>Edit product details: title, description, price, discount</li>
+            <li>Images, gallery, SKU, category, brand</li>
+            <li>Draft → Publish workflow</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Add product</button>
+            <button>Upload gallery</button>
+            <button>Send for review</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Category & Brand Management</h3>
+            <span class="pill pill--blue">Structure</span>
+          </div>
+          <ul class="list">
+            <li>Add / Edit / Delete categories</li>
+            <li>Add / Edit / Delete brands</li>
+            <li>Add / Edit product attributes (size, colors)</li>
+          </ul>
+          <div class="quick-actions">
+            <button>New category</button>
+            <button>Brand list</button>
+            <button>Attributes</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Inventory Alerts</h3>
+            <span class="pill pill--orange">Stock</span>
+          </div>
+          <ul class="list">
+            <li>Low stock products</li>
+            <li>Out of stock products</li>
+            <li>Notifications to buyers</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Low stock</button>
+            <button>OOS list</button>
+            <button>Notify supplier</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Activity</h3>
+            <span class="pill pill--slate">Live</span>
+          </div>
+          <ul class="activity">
+            <li><strong>9m</strong> • Draft updated • SKU-2288</li>
+            <li><strong>22m</strong> • New gallery uploaded • 8 assets</li>
+            <li><strong>44m</strong> • Attribute set added • "Summer Colors"</li>
+            <li><strong>1h</strong> • 3 products sent for moderation</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="cashier" class="dashboard dashboard--cashier" aria-label="Cashier dashboard">
+      <header class="dashboard__header">
+        <div>
+          <p class="eyebrow">Billing / POS</p>
+          <h2>Cashier Dashboard</h2>
+          <p class="lede">Optimized for physical store and POS checkout with quick billing tools.</p>
+        </div>
+        <div class="pill pill--orange">Point of Sale</div>
+      </header>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p class="summary-card__label">Today’s Sales</p>
+          <p class="summary-card__value">$6,420</p>
+          <p class="summary-card__delta positive">+3.2% today</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Invoices</p>
+          <p class="summary-card__value">182</p>
+          <p class="summary-card__delta">Avg basket: $35.30</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Payment Received</p>
+          <p class="summary-card__value">$5,980</p>
+          <p class="summary-card__delta">Cash / Card / Mobile</p>
+        </article>
+      </div>
+
+      <div class="grid two-columns">
+        <article class="card">
+          <div class="card__header">
+            <h3>POS / Billing System</h3>
+            <span class="pill pill--blue">Checkout</span>
+          </div>
+          <ul class="list">
+            <li>Quick add to cart</li>
+            <li>Invoice generation</li>
+            <li>Print receipt</li>
+            <li>Discounts & tax calculation</li>
+          </ul>
+          <div class="quick-actions">
+            <button>New cart</button>
+            <button>Apply discount</button>
+            <button>Print</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Sales Summary</h3>
+            <span class="pill pill--green">Daily</span>
+          </div>
+          <ul class="list">
+            <li>Today’s sales</li>
+            <li>Total invoices</li>
+            <li>Payment received (Cash, Card, Mobile banking)</li>
+            <li>Daily closing report</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Close shift</button>
+            <button>Export</button>
+            <button>Reconcile</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Customer Handling</h3>
+            <span class="pill pill--purple">Service</span>
+          </div>
+          <ul class="list">
+            <li>Create new customer (optional)</li>
+            <li>Previous purchase search</li>
+            <li>Cashier does not manage online orders</li>
+          </ul>
+          <div class="quick-actions">
+            <button>New customer</button>
+            <button>Search history</button>
+            <button>Save preferences</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Activity</h3>
+            <span class="pill pill--slate">Live</span>
+          </div>
+          <ul class="activity">
+            <li><strong>6m</strong> • Invoice #4472 printed</li>
+            <li><strong>21m</strong> • Discount applied to cart #389</li>
+            <li><strong>35m</strong> • New customer added • A. Rahman</li>
+            <li><strong>58m</strong> • Mobile payment synced</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="customer" class="dashboard dashboard--customer" aria-label="Customer dashboard">
+      <header class="dashboard__header">
+        <div>
+          <p class="eyebrow">Frontend</p>
+          <h2>Customer Dashboard</h2>
+          <p class="lede">Self-service area for shoppers to manage profile, orders, and follow-ups.</p>
+        </div>
+        <div class="pill pill--slate">Self-service</div>
+      </header>
+
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p class="summary-card__label">Open Orders</p>
+          <p class="summary-card__value">3</p>
+          <p class="summary-card__delta">Last delivery ETA: 2d</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Wishlist</p>
+          <p class="summary-card__value">14</p>
+          <p class="summary-card__delta">2 price drops</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-card__label">Loyalty Points</p>
+          <p class="summary-card__value">1,280</p>
+          <p class="summary-card__delta positive">+120 this month</p>
+        </article>
+      </div>
+
+      <div class="grid two-columns">
+        <article class="card">
+          <div class="card__header">
+            <h3>My Profile</h3>
+            <span class="pill pill--blue">Account</span>
+          </div>
+          <ul class="list">
+            <li>Profile & security</li>
+            <li>Shipping address book</li>
+            <li>Notification preferences</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Edit profile</button>
+            <button>Manage addresses</button>
+            <button>Preferences</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Order History</h3>
+            <span class="pill pill--green">Orders</span>
+          </div>
+          <ul class="list">
+            <li>Track orders</li>
+            <li>Download invoices</li>
+            <li>Returns / Refunds</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Track</button>
+            <button>Invoice PDF</button>
+            <button>Start return</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Wishlist & Recommendations</h3>
+            <span class="pill pill--purple">Personalized</span>
+          </div>
+          <ul class="list">
+            <li>Wishlist management</li>
+            <li>Price drop notifications</li>
+            <li>Recommended for you</li>
+          </ul>
+          <div class="quick-actions">
+            <button>View wishlist</button>
+            <button>Share list</button>
+            <button>Update alerts</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__header">
+            <h3>Support</h3>
+            <span class="pill pill--orange">Help</span>
+          </div>
+          <ul class="list">
+            <li>Raise support ticket</li>
+            <li>Order issue report</li>
+            <li>Returns & refunds status</li>
+          </ul>
+          <div class="quick-actions">
+            <button>Open ticket</button>
+            <button>Report issue</button>
+            <button>FAQs</button>
+          </div>
+        </article>
+
+        <article class="card card--full">
+          <div class="card__header">
+            <h3>Activity</h3>
+            <span class="pill pill--slate">Live</span>
+          </div>
+          <ul class="activity">
+            <li><strong>3m</strong> • Order #4483 shipped</li>
+            <li><strong>15m</strong> • Price drop • Noise-cancelling headphones</li>
+            <li><strong>41m</strong> • Wishlist item back in stock</li>
+            <li><strong>1h</strong> • Support ticket updated</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Designed for clarity across every ecommerce role. Swap roles above to preview the tailored experience.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
