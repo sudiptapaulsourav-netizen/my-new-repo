@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="bg-white shadow-sm w-64 hidden md:flex flex-col border-r border-gray-200">
+      <div class="px-6 py-4 flex items-center gap-2 border-b border-gray-200">
+        <div class="h-10 w-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">AD</div>
+        <div>
+          <p class="text-sm text-gray-500">Welcome back</p>
+          <p class="font-semibold text-gray-800">Admin Dashboard</p>
+        </div>
+      </div>
+      <nav class="flex-1 px-4 py-6 space-y-1">
+        <a href="#overview" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium">
+          <span class="text-lg">📊</span>
+          Overview
+        </a>
+        <a href="#users" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="text-lg">👥</span>
+          Users
+        </a>
+        <a href="#sales" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="text-lg">💰</span>
+          Sales
+        </a>
+        <a href="#settings" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100">
+          <span class="text-lg">⚙️</span>
+          Settings
+        </a>
+      </nav>
+      <div class="p-4 border-t border-gray-200">
+        <button class="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium">
+          <span>Dark mode</span>
+          <span class="text-sm bg-white px-2 py-1 rounded">Coming soon</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Top bar -->
+      <header class="sticky top-0 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 flex items-center justify-between z-10">
+        <div class="flex items-center gap-3">
+          <button id="menu-button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+          <div>
+            <p class="text-xs text-gray-500">Dashboard</p>
+            <h1 class="text-xl font-semibold text-gray-900">Overview</h1>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <input type="text" placeholder="Search" class="w-36 sm:w-64 rounded-lg border-gray-200 focus:border-indigo-500 focus:ring-indigo-500 text-sm" />
+            <span class="absolute right-2 top-1.5 text-gray-400">⌕</span>
+          </div>
+          <button class="hidden sm:inline-flex items-center px-3 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">+ New</button>
+          <img src="https://i.pravatar.cc/40?img=8" alt="Avatar" class="h-10 w-10 rounded-full border" />
+        </div>
+      </header>
+
+      <main class="p-4 sm:p-6 space-y-6">
+        <!-- Stats -->
+        <section id="overview" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-gray-500">Total Users</p>
+              <span class="text-green-600 text-xs font-semibold">+12%</span>
+            </div>
+            <p class="text-3xl font-bold mt-2">24,581</p>
+            <p class="text-xs text-gray-400">Compared to last month</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-gray-500">Active Sessions</p>
+              <span class="text-green-600 text-xs font-semibold">+4%</span>
+            </div>
+            <p class="text-3xl font-bold mt-2">1,932</p>
+            <p class="text-xs text-gray-400">Live user sessions</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-gray-500">Revenue</p>
+              <span class="text-red-600 text-xs font-semibold">-2%</span>
+            </div>
+            <p class="text-3xl font-bold mt-2">$83,200</p>
+            <p class="text-xs text-gray-400">Monthly recurring revenue</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-center justify-between">
+              <p class="text-sm text-gray-500">Tickets</p>
+              <span class="text-green-600 text-xs font-semibold">+8%</span>
+            </div>
+            <p class="text-3xl font-bold mt-2">438</p>
+            <p class="text-xs text-gray-400">Resolved this week</p>
+          </div>
+        </section>
+
+        <!-- Charts placeholder -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-4" id="sales">
+          <div class="lg:col-span-2 bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-start justify-between">
+              <div>
+                <h2 class="text-lg font-semibold">Revenue Trends</h2>
+                <p class="text-sm text-gray-500">Last 12 months</p>
+              </div>
+              <button class="text-sm text-indigo-600">Download CSV</button>
+            </div>
+            <div class="mt-6 h-56 bg-gradient-to-br from-indigo-50 to-indigo-100 border border-dashed border-indigo-200 rounded-lg flex items-center justify-center text-indigo-500">
+              <p class="text-sm">Embed charts here (e.g., with Chart.js)</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-start justify-between">
+              <div>
+                <h2 class="text-lg font-semibold">Server Health</h2>
+                <p class="text-sm text-gray-500">Updated just now</p>
+              </div>
+              <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Stable</span>
+            </div>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-center justify-between">
+                <span>CPU Usage</span>
+                <span class="text-sm font-semibold text-gray-700">36%</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Memory</span>
+                <span class="text-sm font-semibold text-gray-700">64%</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Disk</span>
+                <span class="text-sm font-semibold text-gray-700">82%</span>
+              </li>
+              <li class="flex items-center justify-between">
+                <span>Network</span>
+                <span class="text-sm font-semibold text-gray-700">120Mbps</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Tables & activity -->
+        <section class="grid grid-cols-1 xl:grid-cols-3 gap-4" id="users">
+          <div class="xl:col-span-2 bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-semibold">Recent Users</h2>
+              <button class="text-sm text-indigo-600">View all</button>
+            </div>
+            <div class="mt-4 overflow-x-auto">
+              <table class="min-w-full text-sm">
+                <thead>
+                  <tr class="text-left text-gray-500 border-b">
+                    <th class="pb-2">Name</th>
+                    <th class="pb-2">Role</th>
+                    <th class="pb-2">Status</th>
+                    <th class="pb-2">Last active</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                  <tr>
+                    <td class="py-2 font-medium text-gray-900">Ariana Frost</td>
+                    <td class="py-2">Product Manager</td>
+                    <td class="py-2"><span class="px-2 py-1 rounded-full bg-green-50 text-green-700 text-xs">Active</span></td>
+                    <td class="py-2 text-gray-500">2m ago</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 font-medium text-gray-900">Jamal Richards</td>
+                    <td class="py-2">Support Lead</td>
+                    <td class="py-2"><span class="px-2 py-1 rounded-full bg-yellow-50 text-yellow-700 text-xs">Away</span></td>
+                    <td class="py-2 text-gray-500">15m ago</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 font-medium text-gray-900">Mei Chen</td>
+                    <td class="py-2">Data Analyst</td>
+                    <td class="py-2"><span class="px-2 py-1 rounded-full bg-green-50 text-green-700 text-xs">Active</span></td>
+                    <td class="py-2 text-gray-500">1h ago</td>
+                  </tr>
+                  <tr>
+                    <td class="py-2 font-medium text-gray-900">Oscar Alvarez</td>
+                    <td class="py-2">DevOps</td>
+                    <td class="py-2"><span class="px-2 py-1 rounded-full bg-red-50 text-red-700 text-xs">Offline</span></td>
+                    <td class="py-2 text-gray-500">3h ago</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-lg font-semibold">Activity</h2>
+              <button class="text-sm text-indigo-600">View timeline</button>
+            </div>
+            <ul class="mt-4 space-y-4 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-green-500"></span>
+                <div>
+                  <p class="font-medium">New user onboarding completed</p>
+                  <p class="text-gray-500">Today • 10:24 AM</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-indigo-500"></span>
+                <div>
+                  <p class="font-medium">Server patch deployed</p>
+                  <p class="text-gray-500">Today • 08:12 AM</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-yellow-500"></span>
+                <div>
+                  <p class="font-medium">Billing alerts</p>
+                  <p class="text-gray-500">Yesterday • 06:40 PM</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-red-500"></span>
+                <div>
+                  <p class="font-medium">API latency elevated</p>
+                  <p class="text-gray-500">Yesterday • 03:20 PM</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Settings -->
+        <section id="settings" class="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-lg font-semibold">Quick Settings</h2>
+            <button class="text-sm text-indigo-600">Edit</button>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 mt-4 text-sm">
+            <label class="flex items-center justify-between p-3 border rounded-lg">
+              <div>
+                <p class="font-medium">Enable 2FA</p>
+                <p class="text-gray-500">Protect admin accounts</p>
+              </div>
+              <input type="checkbox" checked class="h-4 w-4 text-indigo-600 rounded border-gray-300" />
+            </label>
+            <label class="flex items-center justify-between p-3 border rounded-lg">
+              <div>
+                <p class="font-medium">Maintenance mode</p>
+                <p class="text-gray-500">Alert users during downtime</p>
+              </div>
+              <input type="checkbox" class="h-4 w-4 text-indigo-600 rounded border-gray-300" />
+            </label>
+            <label class="flex items-center justify-between p-3 border rounded-lg">
+              <div>
+                <p class="font-medium">Email reports</p>
+                <p class="text-gray-500">Daily summaries to team</p>
+              </div>
+              <input type="checkbox" checked class="h-4 w-4 text-indigo-600 rounded border-gray-300" />
+            </label>
+            <label class="flex items-center justify-between p-3 border rounded-lg">
+              <div>
+                <p class="font-medium">Error notifications</p>
+                <p class="text-gray-500">Send alerts on failures</p>
+              </div>
+              <input type="checkbox" checked class="h-4 w-4 text-indigo-600 rounded border-gray-300" />
+            </label>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobile-drawer" class="fixed inset-0 bg-gray-900/30 backdrop-blur-sm hidden z-20">
+    <div class="absolute left-0 top-0 bottom-0 w-72 bg-white shadow-xl border-r border-gray-200 p-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="h-10 w-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg">AD</div>
+          <div>
+            <p class="text-xs text-gray-500">Dashboard</p>
+            <p class="font-semibold text-gray-800">Navigation</p>
+          </div>
+        </div>
+        <button id="close-drawer" class="p-2 rounded hover:bg-gray-100 text-gray-600">✕</button>
+      </div>
+      <nav class="space-y-2">
+        <a href="#overview" class="block px-3 py-2 rounded-lg bg-indigo-50 text-indigo-700 font-medium">Overview</a>
+        <a href="#users" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Users</a>
+        <a href="#sales" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Sales</a>
+        <a href="#settings" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Settings</a>
+      </nav>
+      <button class="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-indigo-600 text-white font-medium">New Action<span>+</span></button>
+    </div>
+  </div>
+
+  <script>
+    const menuButton = document.getElementById('menu-button');
+    const drawer = document.getElementById('mobile-drawer');
+    const closeDrawer = document.getElementById('close-drawer');
+
+    menuButton?.addEventListener('click', () => drawer.classList.remove('hidden'));
+    closeDrawer?.addEventListener('click', () => drawer.classList.add('hidden'));
+    drawer?.addEventListener('click', (event) => {
+      if (event.target === drawer) drawer.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
