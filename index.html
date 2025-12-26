@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ModernUI Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="theme-dark">
+  <div class="app-shell" data-compact="false">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="sidebar__brand" tabindex="0">
+        <div class="brand__icon" aria-hidden="true">&#9673;</div>
+        <div>
+          <p class="brand__label">Nova Control</p>
+          <p class="brand__sub">Operations</p>
+        </div>
+      </div>
+      <nav class="sidebar__nav" aria-label="Main">
+        <p class="sidebar__section">Overview</p>
+        <a class="nav-link is-active" href="#" data-nav-link>Dashboard</a>
+        <a class="nav-link" href="#" data-nav-link>Analytics</a>
+        <a class="nav-link" href="#" data-nav-link>Revenue</a>
+        <a class="nav-link" href="#" data-nav-link>Security</a>
+        <p class="sidebar__section">Ops</p>
+        <a class="nav-link" href="#" data-nav-link>Deployments</a>
+        <a class="nav-link" href="#" data-nav-link>Monitoring</a>
+        <a class="nav-link" href="#" data-nav-link>Integrations</a>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="pill pill--success" aria-label="Environment healthy">Live</div>
+        <div class="badge badge--outline">v2.8</div>
+      </div>
+    </aside>
+
+    <main class="main" aria-label="Dashboard content">
+      <header class="topbar">
+        <div class="topbar__left">
+          <h1>Command Center</h1>
+          <p class="muted">ModernUI-inspired admin workspace with responsive insights.</p>
+        </div>
+        <div class="topbar__right">
+          <label class="search" aria-label="Search">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.75 4.5a6.25 6.25 0 1 1 0 12.5 6.25 6.25 0 0 1 0-12.5Zm7 12.75-2.9-2.9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            <input type="search" name="search" placeholder="Search command palette" />
+          </label>
+          <button class="button button--ghost" type="button">Create</button>
+          <button class="button button--primary" type="button" id="compactToggle" aria-pressed="false">Compact mode</button>
+        </div>
+      </header>
+
+      <section class="grid kpi-grid" aria-label="Key performance indicators">
+        <article class="card card--kpi" data-animate>
+          <div class="card__head">
+            <p class="muted">Revenue</p>
+            <span class="badge badge--success">+8.4%</span>
+          </div>
+          <p class="metric">$248,400</p>
+          <div class="subtext">vs last period</div>
+          <div class="spark spark--line" aria-hidden="true">
+            <span style="--p: 40"></span><span style="--p: 65"></span><span style="--p: 52"></span><span style="--p: 78"></span><span style="--p: 90"></span><span style="--p: 72"></span>
+          </div>
+        </article>
+        <article class="card card--kpi" data-animate>
+          <div class="card__head">
+            <p class="muted">Active users</p>
+            <span class="badge badge--warning">+3.1%</span>
+          </div>
+          <p class="metric">18,920</p>
+          <div class="subtext">real-time sessions</div>
+          <div class="spark spark--bar" aria-hidden="true">
+            <span style="--p: 72"></span><span style="--p: 68"></span><span style="--p: 82"></span><span style="--p: 64"></span><span style="--p: 91"></span><span style="--p: 77"></span>
+          </div>
+        </article>
+        <article class="card card--kpi" data-animate>
+          <div class="card__head">
+            <p class="muted">Deploy success</p>
+            <span class="badge badge--outline">99.1%</span>
+          </div>
+          <p class="metric">42</p>
+          <div class="subtext">deployments this week</div>
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="99">
+            <span style="width: 99%"></span>
+          </div>
+        </article>
+        <article class="card card--kpi" data-animate>
+          <div class="card__head">
+            <p class="muted">Tickets</p>
+            <span class="badge badge--danger">-1.2%</span>
+          </div>
+          <p class="metric">126</p>
+          <div class="subtext">open incidents</div>
+          <div class="spark spark--line" aria-hidden="true">
+            <span style="--p: 60"></span><span style="--p: 54"></span><span style="--p: 48"></span><span style="--p: 52"></span><span style="--p: 44"></span><span style="--p: 38"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid" aria-label="Dashboard panels">
+        <article class="card card--wide" data-animate>
+          <div class="card__head">
+            <p class="muted">Traffic and conversion</p>
+            <div class="pill pill--glow">Live</div>
+          </div>
+          <div class="chart chart--area" role="img" aria-label="Traffic and conversion trends" aria-live="polite">
+            <div class="chart__line"><span style="--x: 5; --y: 62"></span><span style="--x: 22; --y: 58"></span><span style="--x: 38; --y: 66"></span><span style="--x: 56; --y: 50"></span><span style="--x: 72; --y: 78"></span><span style="--x: 88; --y: 68"></span></div>
+            <div class="chart__line chart__line--accent"><span style="--x: 5; --y: 70"></span><span style="--x: 22; --y: 64"></span><span style="--x: 38; --y: 74"></span><span style="--x: 56; --y: 62"></span><span style="--x: 72; --y: 86"></span><span style="--x: 88; --y: 82"></span></div>
+          </div>
+          <div class="legend">
+            <span class="legend__item"><span class="dot dot--primary"></span>Visitors</span>
+            <span class="legend__item"><span class="dot dot--accent"></span>Conversions</span>
+          </div>
+        </article>
+
+        <article class="card" data-animate>
+          <div class="card__head">
+            <p class="muted">System health</p>
+            <span class="badge badge--success">Optimal</span>
+          </div>
+          <div class="health">
+            <div class="health__row">
+              <div>
+                <p class="label">Latency</p>
+                <p class="value">112 ms</p>
+              </div>
+              <div class="indicator indicator--success">Stable</div>
+            </div>
+            <div class="health__bar"><span style="width: 82%"></span></div>
+            <div class="health__row">
+              <div>
+                <p class="label">Error rate</p>
+                <p class="value">0.14%</p>
+              </div>
+              <div class="indicator indicator--warning">Monitoring</div>
+            </div>
+            <div class="health__bar health__bar--warning"><span style="width: 42%"></span></div>
+            <div class="health__row">
+              <div>
+                <p class="label">Queue depth</p>
+                <p class="value">37 jobs</p>
+              </div>
+              <div class="indicator">Balanced</div>
+            </div>
+            <div class="health__bar"><span style="width: 64%"></span></div>
+          </div>
+        </article>
+
+        <article class="card" data-animate>
+          <div class="card__head">
+            <p class="muted">Tasks</p>
+            <span class="badge badge--outline">Today</span>
+          </div>
+          <ul class="list" role="list">
+            <li class="list__item">
+              <label class="checkbox">
+                <input type="checkbox" checked />
+                <span>Schedule blue/green deploy for checkout service</span>
+              </label>
+              <span class="pill">High</span>
+            </li>
+            <li class="list__item">
+              <label class="checkbox">
+                <input type="checkbox" />
+                <span>Run audit on privileged access tokens</span>
+              </label>
+              <span class="pill pill--warning">Security</span>
+            </li>
+            <li class="list__item">
+              <label class="checkbox">
+                <input type="checkbox" />
+                <span>Refine anomaly alerts thresholds</span>
+              </label>
+              <span class="pill pill--glow">Ops</span>
+            </li>
+          </ul>
+        </article>
+
+        <article class="card card--table" data-animate>
+          <div class="card__head">
+            <p class="muted">Recent activity</p>
+            <span class="badge badge--outline">Events</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Owner</th>
+                <th scope="col">Action</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nova Jenkins</td>
+                <td>Pushed service mesh update</td>
+                <td><span class="pill pill--success">Success</span></td>
+              </tr>
+              <tr>
+                <td>Cloud Ops</td>
+                <td>Applied firewall baseline</td>
+                <td><span class="pill pill--warning">Waiting</span></td>
+              </tr>
+              <tr>
+                <td>Security Bot</td>
+                <td>Rotated credentials bundle</td>
+                <td><span class="pill">Ok</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card" data-animate>
+          <div class="card__head">
+            <p class="muted">Activity feed</p>
+            <span class="badge badge--success">Live</span>
+          </div>
+          <ol class="timeline" aria-label="Recent activity">
+            <li class="timeline__item">
+              <span class="dot dot--primary"></span>
+              <div>
+                <p class="label">UX Research</p>
+                <p class="value">Shared new flows for approval</p>
+              </div>
+              <span class="muted">2m</span>
+            </li>
+            <li class="timeline__item">
+              <span class="dot dot--accent"></span>
+              <div>
+                <p class="label">API Gateway</p>
+                <p class="value">Rate limits tuned for launch window</p>
+              </div>
+              <span class="muted">18m</span>
+            </li>
+            <li class="timeline__item">
+              <span class="dot"></span>
+              <div>
+                <p class="label">Analytics</p>
+                <p class="value">New cohort added to beta program</p>
+              </div>
+              <span class="muted">54m</span>
+            </li>
+          </ol>
+        </article>
+
+        <article class="card" data-animate>
+          <div class="card__head">
+            <p class="muted">System health panels</p>
+            <span class="badge badge--outline">Auto-refresh</span>
+          </div>
+          <div class="panels">
+            <div class="panel">
+              <p class="label">API Nodes</p>
+              <p class="value">12 / 12</p>
+              <div class="progress"><span style="width: 100%"></span></div>
+            </div>
+            <div class="panel">
+              <p class="label">Cache hit</p>
+              <p class="value">94%</p>
+              <div class="progress"><span style="width: 94%"></span></div>
+            </div>
+            <div class="panel">
+              <p class="label">Background tasks</p>
+              <p class="value">67 running</p>
+              <div class="progress"><span style="width: 67%"></span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="assets/script.js"></script>
+</body>
+</html>
